@@ -1,3 +1,66 @@
 // Place all the styles related to the Static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.background1{
+background-color: #EAEAEA;
+height: 5500px;
+}
+
+.title1{
+    text-align: center;
+    color: white;
+    font-size: 20mm;
+    text-shadow: 3px 3px 4px rgba(0,0,0,0.67);
+}
+
+.box1{
+    padding: 100px;
+    height: 300px;
+
+}
+.box2{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    height: 1550px;
+    background-image : url(top_photo.png);
+    background-size: cover;
+
+
+}
+
+.box2>button{
+    padding: 10px;
+    margin: 50px;
+    width: 650px;
+    font-size: 12mm;
+    text-align: center;
+}
+
+p{
+    font-size:30px;
+}
+
+.box3{
+    text-align: center;
+    margin-bottom: 100px;
+    padding: 70px;
+}
+
+
+.box4{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.box5{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+.box6{
+    text-align: center;
+    margin-bottom: 80px;
+}
