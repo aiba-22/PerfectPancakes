@@ -1,0 +1,82 @@
+header.masthead
+  .container
+    .masthead-subheading
+      | PerfectPancakes
+    .masthead-subheading
+      div.btn.btn-primary.btn-xl.text-uppercase.m-1
+         = link_to 'ログイン', login_path
+      div.btn.btn-primary.btn-xl.text-uppercase.m-1
+         = link_to '新規登録', new_user_path
+    a.btn.btn-secondary.btn-sm.text-uppercase.mb-5
+      | ログインしないで使う
+    .masthead-subheading
+      a.btn.btn-info.btn-xl.text-uppercase.mt-5[href="#about"]
+        |  ▽ 使い方
+
+
+section#about.page-section
+  .container
+    .text-center
+      h2.section-heading.text-uppercase
+        | 完璧なパンケーキの為に
+      h3.section-subheading.text-muted
+        | Lorem ipsum dolor sit amet consectetur.
+    ul.timeline
+      li
+        .timeline-image
+          = image_tag 'baking.png'
+        .timeline-panel
+          .timeline-heading
+            h4
+              | ひっくり返すタイミングが分からない
+            h4.subheading
+              | そんな事ありませんか？
+          .timeline-body
+      li.timeline-inverted
+        .timeline-image
+          = image_tag 'koge2.png'
+        .timeline-panel
+          .timeline-heading
+            h4
+              | 焦げてしまったり・・・生焼けになってしまったり・・・
+          .timeline-body
+            p.text-muted
+              | am reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+      li
+        .timeline-image
+          = image_tag 'perfectpancakes.png'
+        .timeline-panel
+          .timeline-heading
+            h4.m-4
+              | そんな貴方に
+            h4.subheading
+              | タイミングを教えてくれます！
+          .timeline-body
+            p.text-muted
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+
+section#team.page-section.bg-light
+  .container
+    .text-center
+      h2.section-heading.text-uppercase
+        | ###
+      h3.section-subheading.text-muted
+        | ###
+
+footer.footer.py-4
+  .container
+    .row.align-items-center
+      .col-lg-4.text-lg-start
+        | Copyright © Your Website 2021
+      .col-lg-4.my-3.my-lg-0
+        a.btn.btn-dark.btn-social.mx-2[href="#!"]
+          i.fab.fa-twitter
+        a.btn.btn-dark.btn-social.mx-2[href="#!"]
+          i.fab.fa-facebook-f
+        a.btn.btn-dark.btn-social.mx-2[href="#!"]
+          i.fab.fa-linkedin-in
+      .col-lg-4.text-lg-end
+        a.link-dark.text-decoration-none.me-3[href="#!"]
+          | Privacy Policy
+        a.link-dark.text-decoration-none[href="#!"]
+          | Terms of Use

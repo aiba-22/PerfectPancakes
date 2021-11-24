@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'my_page_menus/index'
+  get 'static_pages/top'
+
+root to: 'static_pages#top'
+resources :users, only: [:create, :new, :edit, :show, :destroy, :update]
+get 'login' => 'user_sessions#new', :as => :login
+post 'login' => "user_sessions#create"
+post 'logout' => 'user_sessions#destroy', :as => :logout
+
+
 end
+
