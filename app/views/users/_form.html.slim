@@ -6,21 +6,21 @@
         - @user.errors.full_messages.each do |message|
           li = message
 
-  h4.section-heading.text-uppercase
+  h4
     = f.label :name
-  h2.section-heading.text-uppercase.mb-4
+  h2.mb-4
     = f.text_field :name, class: 'form'
-  h4.section-heading.text-uppercase
+  h4.
     = f.label :email
-  h2.section-heading.text-uppercase.mb-4
+  h2.mb-4
     = f.text_field :email, class: 'form'
-  h4.section-heading.text-uppercase
+  h4
     = f.label :password
-  h2.section-heading.text-uppercase.mb-4
+  h2.mb-4
     = f.text_field :password, class: 'form'
-  h4.section-heading.text-uppercase
+  h4
     = f.label :password_confirmation
-  h2.section-heading.text-uppercase
+  h2
     = f.text_field :password_confirmation, class: 'form'
-  h4.section-heading.text-uppercase
-    = f.submit "create", class: 'btn.btn-secondary.btn-sm.text-uppercase.mb-5'
+  h4.mt-5
+    = f.submit "create", class: 'btn.btn-primary.btn-xl.text-uppercase.mb-5'

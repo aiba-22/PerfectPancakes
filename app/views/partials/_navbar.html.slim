@@ -9,12 +9,17 @@ nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"
         div class="collapse navbar-collapse" id="navbarResponsive"
             ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0"
                 li class="nav-item"
+                    =link_to 'ホーム', root_path
+                li class="nav-item"
                     =link_to 'Login', login_path
                 li class="nav-item"
                     =link_to '新規登録', new_user_path
                 li class="nav-item"
-                    =link_to '作り方', root_path
+                    =link_to 'マイページメニュー', my_page_menus_index_path
+                li class="nav-item"
+                    =link_to '作り方', making_pancakes_simple_recipe_path
                 li class="nav-item"
                     =link_to 'カメラ起動', root_path
                 li class="nav-item"
                     =link_to 'マイレシピ', root_path
+

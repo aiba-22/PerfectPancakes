@@ -3,13 +3,13 @@ body.bg-secondary.p-5
         .row.m-5
             .text-center.text-white
                 .h1
-                    | マイページメニュー
+                    |パンケーキを作る
         .row
             div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-                = link_to 'パンケーキ作成', making_pancakes_index_path
+                | カメラ起動
         .row
             div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-                | マイレシピ
+                = link_to '簡単なレシピを見る', making_pancakes_simple_recipe_path
         .row
             div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-                = link_to 'ホームに戻る', root_path
+                = link_to 'マイページに戻る', my_page_menus_index_path
