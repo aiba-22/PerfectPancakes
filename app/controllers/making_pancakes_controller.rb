@@ -3,4 +3,6 @@ class MakingPancakesController < ApplicationController
   end
   def simple_recipe
   end
+  def webcam
+  end
 end

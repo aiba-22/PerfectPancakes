@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'making_pancakes/simple_recipe'
   get 'making_pancakes/index'
+  get 'making_pancakes/webcam'
   get 'my_page_menus/index'
   get 'static_pages/top'
 
