@@ -1,0 +1,102 @@
+body.bg-secondary.p-5
+  .webcambox
+    video#video.webcam-img[autoplay playsinline]
+    .start
+      .p[id="button" onclick="init()"]
+        |click!!
+    .label
+      #label-container
+    canvas#canvas.transparent-img
+
+
+javascript:
+  //initのボタンをクリックした時にカメラの起動が始まり、次に画像解析が始まる
+
+  // labelContainer: フロント側に表示する結果を格納する
+    let labelContainer, model;
+  //ページを読み込む際にlabelContainerの要素を取得する必要がある為、initの前に記載
+
+  async function init() {
+
+  //変数設定
+  //カメラの設定
+    let medias;
+
+      medias = {
+      audio: false,
+      video: {
+          facingMode: {
+          exact: "environment"
+          }
+      }
+    };
+
+  //DOMに要素追加
+    //カメラ映像を出すvideoタグ
+      const video = document.getElementById("video");
+    //ユーザーのカメラを取得する
+      const promise = navigator.mediaDevices.getUserMedia(medias);
+
+  //カメラの起動許可をするとコールバックしてvideoタグにカメラ映像を写す
+    promise.then(successCallback)
+      .catch(errorCallback);
+  //コールバックより実行しvideoオブジェクトにカメラ映像を格納する
+    function successCallback(stream) {
+      video.srcObject = stream;
+      };
+  //起動許可がされない時はアラート表示を行う
+      function errorCallback(err) {
+      alert(err);
+      };
+
+  //スタートボタンを待ちのボタンに変更を行う
+    var button =document.getElementById("button")
+    button.className = "spinner-border";
+    button.innerHTML = "";
+
+  //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
+    const URL = "https://teachablemachine.withgoogle.com/models/vtT6LMR6V/";
+
+  //teachablemachineのモデルURLを読み込む
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
+
+  //モデルのイメージを格納する
+    model = await tmImage.load(modelURL, metadataURL);
+
+  //フロント側に表示する結果ラベルをDOMに要素追加する
+    labelContainer = document.getElementById("label-container");
+
+  //待ちのボタンを見えなくする
+    button.className = "transparent-img";
+  //画像を常に識別し結果を表示するためのループ処理
+    window.requestAnimationFrame(loop);
+  }
+
+
+  async function loop() {
+  //canvasに静止画を格納する
+    var canvas =document.getElementById("canvas")
+    canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)
+
+    const prediction = await model.predict(canvas);
+
+    //数値によってラベルの結果を変更する
+      if ( prediction[0].probability.toFixed(2) >= 0.04) {
+        labelContainer.className = "mocchiri ";
+        labelContainer.innerHTML = "今だ";
+      }
+
+      if ( prediction[0].probability.toFixed(2) < 0.03 && prediction[0].probability.toFixed(2) >= 0.01) {
+        labelContainer.className = "purupuru2";
+        labelContainer.innerHTML = "もう少し";
+      }
+
+
+      if ( prediction[0].probability.toFixed(2) < 0.01 && prediction[0].probability.toFixed(2) >= 0) {
+          labelContainer.className = "yureru-s";
+        labelContainer.innerHTML = "まだまだ";
+      }
+
+    window.requestAnimationFrame(loop);
+    }
