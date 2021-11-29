@@ -1,0 +1,2 @@
+module FavoriteBakingsHelper
+end
