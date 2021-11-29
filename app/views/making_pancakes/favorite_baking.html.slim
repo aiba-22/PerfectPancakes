@@ -1,0 +1,11 @@
+body.bg-secondary.p-5 
+  .container.row.m-5 
+    .text-center.text-white
+      .h1 
+        |焼き加減調整
+  .row
+
+= form_with url: favorite_bakings_edit_path,method: :get do |f|
+  #customRange3.form-range
+    = f.range_field :w1, min: 0.7, max: 1.4, step: 0.1, value: @user.favorite_baking,class: "form-range", id: "slider1"
+    = f.submit "保存", class: 'btn.btn-secondary.btn-sm.text-uppercase.mb-5'
