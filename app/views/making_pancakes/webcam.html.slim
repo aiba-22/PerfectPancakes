@@ -9,6 +9,7 @@ body.bg-secondary.p-5
     canvas#canvas.transparent-img
 
 
+
 javascript:
   //initのボタンをクリックした時にカメラの起動が始まり、次に画像解析が始まる
 
@@ -62,8 +63,9 @@ javascript:
     const metadataURL = URL + "metadata.json";
 
   //モデルのイメージを格納する
-    model = await tmImage.load(modelURL, metadataURL);
 
+    model = await tmImage.load(modelURL, metadataURL);
+    console.log(model);
   //フロント側に表示する結果ラベルをDOMに要素追加する
     labelContainer = document.getElementById("label-container");
 
