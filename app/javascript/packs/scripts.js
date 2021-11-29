@@ -5,13 +5,12 @@
 */
 //
 // Scripts
-//
+// 
 
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
     var navbarShrink = function () {
-
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
             return;
@@ -33,7 +32,6 @@ window.addEventListener('DOMContentLoaded', event => {
     // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
-
         new bootstrap.ScrollSpy(document.body, {
             target: '#mainNav',
             offset: 74,

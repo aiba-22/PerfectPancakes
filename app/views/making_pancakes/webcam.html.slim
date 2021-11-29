@@ -75,25 +75,25 @@ javascript:
 
 
   async function loop() {
-  //ユーザーが設定した焼き加減の変数取得
-    const buf = #{@user.favorite_baking};
   //canvasに静止画を格納する
     var canvas =document.getElementById("canvas")
     canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)
+
     const prediction = await model.predict(canvas);
+
     //数値によってラベルの結果を変更する
-      if (( prediction[0].probability.toFixed(2)*buf) >= 0.02) {
+      if ( prediction[0].probability.toFixed(2) >= 0.04) {
         labelContainer.className = "mocchiri ";
         labelContainer.innerHTML = "今だ";
       }
 
-      if (( prediction[0].probability.toFixed(2)*buf) < 0.02 && (prediction[0].probability.toFixed(2)*buf) >= 0.01) {
+      if ( prediction[0].probability.toFixed(2) < 0.03 && prediction[0].probability.toFixed(2) >= 0.01) {
         labelContainer.className = "purupuru2";
         labelContainer.innerHTML = "もう少し";
       }
 
 
-      if (( prediction[0].probability.toFixed(2)*buf) < 0.01 && (prediction[0].probability.toFixed(2)*buf) >= 0) {
+      if ( prediction[0].probability.toFixed(2) < 0.01 && prediction[0].probability.toFixed(2) >= 0) {
           labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "まだまだ";
       }
