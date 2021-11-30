@@ -1,15 +1,12 @@
-body.bg-secondary.p-5
+body.bg-secondary.p-5.mt-5
     .container
-        .row.m-5
-            .text-center.text-white
-                .h1
+        .row
+            .col.p-5
+                .h1.text-center.text-white
                     | マイページメニュー
         .row
-            div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-                = link_to 'パンケーキ作成', making_pancakes_index_path
+            .btn-circle.pb-5
+                = link_to 'パンケーキを作る', making_pancakes_index_path
         .row
-            div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-                | マイレシピ
-        .row
-            div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-                = link_to 'ホームに戻る', root_path
+            .btn-circle.pb-5
+                = link_to 'マイレシピ', '#'

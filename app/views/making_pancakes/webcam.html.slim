@@ -1,12 +1,20 @@
-body.bg-secondary.p-5
+body.bg-secondary.p-5.mt-5
   .webcambox
     video#video.webcam-img[autoplay playsinline]
     .start
-      .p[id="button" onclick="init()"]
-        |click!!
+      .div[id="button" onclick="init()"]
+        |スタート
+        .h5.pt-2
+          |フライパンに生地を流し込んだら
+        .h5
+          |スタートを押してください
     .label
       #label-container
-    canvas#canvas.transparent-img
+      canvas#canvas.transparent-img
+    .container
+      .row
+        .col.text-white
+          =link_to '焼き加減調整をする', making_pancakes_favorite_baking_path
 
 
 
@@ -86,12 +94,12 @@ javascript:
     //数値によってラベルの結果を変更する
       if (( prediction[0].probability.toFixed(2)*buf) >= 0.02) {
         labelContainer.className = "mocchiri ";
-        labelContainer.innerHTML = "今だ";
+        labelContainer.innerHTML = "いまだ！！";
       }
 
       if (( prediction[0].probability.toFixed(2)*buf) < 0.02 && (prediction[0].probability.toFixed(2)*buf) >= 0.01) {
         labelContainer.className = "purupuru2";
-        labelContainer.innerHTML = "もう少し";
+        labelContainer.innerHTML = "もうすこし";
       }
 
 

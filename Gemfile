@@ -33,8 +33,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 #CSSフレームワーク
-gem 'bootstrap-sass', '~> 3.3.6'
-
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 #　railsでslimを利用するためのgem
 gem 'slim-rails'
 #　html.erbをhtmle.slimに変換するためのgem

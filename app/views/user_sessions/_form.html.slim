@@ -1,11 +1,18 @@
 = form_with url: login_path, method: :post do |f|
-  h4
-    = f.label :email
-  h2.mb-4
-    = f.text_field :email, class: 'form'
-  h4
-    = f.label :password
-  h2.mb-4
-    = f.text_field :password, class: 'form'
-  h4
-     = f.submit "ログイン", class: 'button', class: 'btn.btn-secondary.btn-sm.text-uppercase.mb-5'
+  container
+    .row
+      .text-white
+        = f.label :email
+    .row.pb-3
+      .col
+        .container.mb-4
+          = f.text_field :email, class: 'form'
+    .row
+      .text-white
+        = f.label :password
+      .col
+        .container.mb-4
+          = f.text_field :password, class: 'form'
+    .row
+      .container
+        = f.submit "ログイン", class: 'btn btn-primary text-black m-2'

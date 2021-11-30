@@ -1,20 +1,16 @@
-nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"
-  a.navbar-brand[href="#"]
-    | Navbar
+nav class="navbar navbar-expand-lg navbar-dark fixed-top p-4" id="mainNav"
+  a.navbar-brand[href="/"]
+    | PerfectPancakes
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
     span.navbar-toggler-icon
   #navbarNav.collapse.navbar-collapse
     ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0"
       li class="nav-item"
-          =link_to 'ホーム', root_path
-      li class="nav-item"
-          =link_to 'Login', login_path
+          =link_to 'ログイン', login_path
       li class="nav-item"
           =link_to '新規登録', new_user_path
       li class="nav-item"
           =link_to 'マイページメニュー', my_page_menus_index_path
-      li class="nav-item"
-          =link_to '作り方', making_pancakes_simple_recipe_path
       li class="nav-item"
           =link_to 'カメラ起動', making_pancakes_webcam_path, data: {"turbolinks" => false}
       li class="nav-item"

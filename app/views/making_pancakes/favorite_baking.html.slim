@@ -1,11 +1,24 @@
-body.bg-secondary.p-5 
-  .container.row.m-5 
+body.bg-secondary.p-5
+  .container.row.mt-5
     .text-center.text-white
-      .h1 
+      .h1
         |焼き加減調整
-  .row
+  .container.mt-5
+    .row
+      .col
+        h3.text-left.text-white
+          |しっとり
+      .col
+        h3.text-right.text-white
+          |よく焼き
+    = form_with url: favorite_bakings_edit_path,method: :get do |f|
+      #customRange3.form-range
+        = f.range_field :w1, min: 0.7, max: 1.5, step: 0.1, value: @user.favorite_baking,class: "form-range", id: "slider1"
+      .row
+        .col
+          = f.submit "保存", class: 'btn btn-primary m-1'
+      .container.pt-5
+      .row
+        .col.text-white
+          =link_to 'カメラ起動に戻る', making_pancakes_webcam_path
 
-= form_with url: favorite_bakings_edit_path,method: :get do |f|
-  #customRange3.form-range
-    = f.range_field :w1, min: 0.7, max: 1.4, step: 0.1, value: @user.favorite_baking,class: "form-range", id: "slider1"
-    = f.submit "保存", class: 'btn.btn-secondary.btn-sm.text-uppercase.mb-5'

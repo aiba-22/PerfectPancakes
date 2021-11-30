@@ -5,22 +5,31 @@
       ul
         - @user.errors.full_messages.each do |message|
           li = message
-
-  h4
-    = f.label :name
-  h2.mb-4
-    = f.text_field :name, class: 'form'
-  h4.
-    = f.label :email
-  h2.mb-4
-    = f.text_field :email, class: 'form'
-  h4
-    = f.label :password
-  h2.mb-4
-    = f.text_field :password, class: 'form'
-  h4
-    = f.label :password_confirmation
-  h2
-    = f.text_field :password_confirmation, class: 'form'
-  h4.mt-5
-    = f.submit "create", class: 'btn.btn-primary.btn-xl.text-uppercase.mb-5'
+  .container
+    .row
+      .text-white
+        = f.label :name
+    .row.pb-3
+      .col
+        = f.text_field :name, class: 'form'
+    row
+      .text-white
+        = f.label :email
+    .row.pb-3
+      .col
+        = f.text_field :email, class: 'form'
+    row
+      .text-white
+        = f.label :password
+    .row.pb-3
+      .col
+        = f.text_field :password, class: 'form'
+    row
+      .text-white
+        = f.label :password_confirmation
+    .row.pb-3
+      .col
+        = f.text_field :password_confirmation, class: 'form'
+    row
+      .container
+        = f.submit "作成", class: 'btn btn-primary text-black m-2'
