@@ -1,20 +1,29 @@
-body.bg-secondary.p-5.mt-5
+.webcam-container.bg-secondary
+  .container
+    .row.pt-5.pb-5
   .webcambox
     video#video.webcam-img[autoplay playsinline]
     .start
       .div[id="button" onclick="init()"]
         |スタート
-        .h5.pt-2
-          |フライパンに生地を流し込んだら
+        .h5.pt-5
+          |フライパンに生地を
+        .h5
+          |流し込んだら
         .h5
           |スタートを押してください
     .label
       #label-container
       canvas#canvas.transparent-img
-    .container
-      .row
-        .col.text-white
-          =link_to '焼き加減調整をする', making_pancakes_favorite_baking_path
+  .webcom-section
+    .row
+      .col.text-white
+      -if current_user
+        =link_to '焼き加減調整', making_pancakes_favorite_baking_path
+    .row.pt-3
+      .col.text-white
+      -if current_user
+        =link_to 'マイページに戻る', making_pancakes_index_path
 
 
 
@@ -86,7 +95,9 @@ javascript:
 
   async function loop() {
   //ユーザーが設定した焼き加減の変数取得
-    const buf = #{@user.favorite_baking};
+
+  const buf = #{@user};
+
   //canvasに静止画を格納する
     var canvas =document.getElementById("canvas")
     canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)

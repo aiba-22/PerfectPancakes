@@ -3002,7 +3002,7 @@ textarea.form-control-lg {
   background:#ffc800;
   border-radius:100%;
   color:#212529;
-  font-size:1.2rem;
+  font-size:1.1rem;
   font-weight:bold;
   text-decoration:none;
   text-align:center;
@@ -11427,24 +11427,21 @@ p {
   }
 }
 
+.webcom-section{
+  position:absolute;
+}
 
 
 .webcam-container{
-  margin-top: 5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  padding-top: 12.5rem;
-  padding-bottom: 20rem;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
+  width: auto;
+  height: 55rem;
+  background-color: #284E78 !important;
 }
 
 
 .webcam-img {
   width: 100%;
+  height: 15rem;
   position: absolute;
   margin: 1em 1;
   background-color:#ECD662;/*背景色*/
@@ -11453,11 +11450,13 @@ p {
   }
 .transparent-img {
   opacity:0;
+  width: 0px;
 }
 .webcambox {
     position: relative;
     width: 100%;
     padding-top: 10%;
+    margin-bottom: 10rem;
 }
 
 .start {
@@ -11474,7 +11473,7 @@ p {
   position: relative;
   font-weight: 3rem;
   line-height: 3rem;
-  margin-top: 15rem;
+
 }
 .webcambox.decoration {
   position: absolute;

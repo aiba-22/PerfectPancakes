@@ -1,10 +1,11 @@
 = form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user.errors.count, 'error')} prohibited this user from being saved:"
-      ul
-        - @user.errors.full_messages.each do |message|
-          li = message
+  .container
+    .row
+      - if @user.errors.any?
+        #error_explanation
+          ul.list-unstyled
+            - @user.errors.full_messages.each do |message|
+              li = message
   .container
     .row
       .text-white
@@ -23,13 +24,13 @@
         = f.label :password
     .row.pb-3
       .col
-        = f.text_field :password, class: 'form'
+        = f.text_field :password, type: 'password', class: 'form'
     row
       .text-white
         = f.label :password_confirmation
     .row.pb-3
       .col
-        = f.text_field :password_confirmation, class: 'form'
+        = f.text_field :password_confirmation, type: 'password', class: 'form'
     row
       .container
         = f.submit "作成", class: 'btn btn-primary text-black m-2'
