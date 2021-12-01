@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :my_recipes
+  resources :recipes
 
   get 'favorite_bakings/edit'
   get 'making_pancakes/simple_recipe'
