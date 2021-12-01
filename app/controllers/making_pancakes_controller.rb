@@ -1,4 +1,5 @@
 class MakingPancakesController < ApplicationController
+  skip_before_action :require_login, only: [:webcam]
   def index
   end
 
@@ -6,9 +7,12 @@ class MakingPancakesController < ApplicationController
   end
 
   def webcam
-    @user = User.find(current_user.id)
+    if current_user
+      @user = User.find(current_user.id).favorite_baking
+    else
+      @user=1
+    end
   end
-
   def favorite_baking
     @user = User.find(current_user.id)
   end

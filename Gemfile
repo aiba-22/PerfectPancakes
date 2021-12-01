@@ -32,14 +32,17 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-#CSSフレームワーク
-gem 'bootstrap-sass', '~> 3.3.6'
-
-#　railsでslimを利用するためのgem
+# CSSフレームワーク
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+# railsでslimを利用するためのgem
 gem 'slim-rails'
-#　html.erbをhtmle.slimに変換するためのgem
+# html.erbをhtmle.slimに変換するためのgem
 gem 'html2slim'
-
+#日本語化
+gem 'rails-i18n', '~> 6.0'
+#デバッグ
+gem 'pry-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

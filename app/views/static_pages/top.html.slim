@@ -3,15 +3,15 @@ header.masthead
     .masthead-subheading
       | PerfectPancakes
     .masthead-subheading
-      div.btn.btn-primary.btn-xl.text-uppercase.m-1
-          = link_to 'ログイン', login_path
-      div.btn.btn-primary.btn-xl.text-uppercase.m-1
-          = link_to '新規登録', new_user_path
-    div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-          = link_to 'ログインしないで使う', making_pancakes_index_path
+      .btn.btn-primary.m-2
+        = link_to 'ログイン', login_path
+      .btn.btn-primary.m-2
+        = link_to '新規登録', new_user_path
+    .btn.btn-secondary.m-2
+      = link_to 'ログインしないで使う', making_pancakes_webcam_path
     .masthead-subheading
       a.btn.btn-info.btn-xl.text-uppercase.mt-5[href="#about"]
-        |  ▽ 使い方
+        |▽ 使い方
 
 
 section#about.page-section
@@ -20,7 +20,7 @@ section#about.page-section
       h2.section-heading.text-uppercase
         | 完璧なパンケーキの為に
       h3.section-subheading.text-muted
-        | Lorem ipsum dolor sit amet consectetur.
+        | To make the perfect pancake.
     ul.timeline
       li
         .timeline-image
@@ -32,6 +32,8 @@ section#about.page-section
             h4.subheading
               | そんな事ありませんか？
           .timeline-body
+            p.text-muted
+              I don't know when to turn it over Isn't that the case?
       li.timeline-inverted
         .timeline-image
           = image_tag 'koge2.png'
@@ -41,7 +43,7 @@ section#about.page-section
               | 焦げてしまったり・・・生焼けになってしまったり・・・
           .timeline-body
             p.text-muted
-              | kogekoge ya motto jyouzuni tukutteya!!
+              | burnt overcooked...Undercooked...
       li
         .timeline-image
           = image_tag 'perfectpancakes.png'
@@ -53,30 +55,23 @@ section#about.page-section
               | タイミングを教えてくれます！
           .timeline-body
             p.text-muted
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+              | This app will tell you the timing!
 
-section#team.page-section.bg-light
-  .container
-    .text-center
-      h2.section-heading.text-uppercase
-        | ###
-      h3.section-subheading.text-muted
-        | ###
-
-footer.footer.py-4
-  .container
-    .row.align-items-center
-      .col-lg-4.text-lg-start
-        | Copyright © Your Website 2021
-      .col-lg-4.my-3.my-lg-0
-        a.btn.btn-dark.btn-social.mx-2[href="#!"]
-          i.fab.fa-twitter
-        a.btn.btn-dark.btn-social.mx-2[href="#!"]
-          i.fab.fa-facebook-f
-        a.btn.btn-dark.btn-social.mx-2[href="#!"]
-          i.fab.fa-linkedin-in
-      .col-lg-4.text-lg-end
-        a.link-dark.text-decoration-none.me-3[href="#!"]
-          | Privacy Policy
-        a.link-dark.text-decoration-none[href="#!"]
-          | Terms of Use
+section#fotter.page-section.bg-light
+  footer.footer.py-4
+    .container
+      .row.align-items-center
+        .col-lg-4.text-lg-start
+          | Copyright © Your Website 2021
+        .col-lg-4.my-3.my-lg-0
+          a.btn.btn-dark.btn-social.mx-2[href="#!"]
+            i.fab.fa-twitter
+          a.btn.btn-dark.btn-social.mx-2[href="#!"]
+            i.fab.fa-facebook-f
+          a.btn.btn-dark.btn-social.mx-2[href="#!"]
+            i.fab.fa-linkedin-in
+        .col-lg-4.text-lg-end
+          a.link-dark.text-decoration-none.me-3[href="#!"]
+            | Privacy Policy
+          a.link-dark.text-decoration-none[href="#!"]
+            | Terms of Use

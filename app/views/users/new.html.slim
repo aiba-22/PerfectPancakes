@@ -2,12 +2,14 @@ body.bg-secondary
     .container.mt-5
         row.m-5
         .text-center
-            h2.m-5
+            h2.m-5.text-white
                 | 新規登録
             = render 'form'
-    .row
-        div.btn.btn-secondary.btn-sm.text-uppercase.mb-5
-            = link_to 'Back', root_path
+        .container
+            .row
+                .col
+                    .text-white.mb-5
+                        = link_to 'Back', root_path
 
 
 
