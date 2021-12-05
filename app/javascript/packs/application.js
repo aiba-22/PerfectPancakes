@@ -10,7 +10,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 require('./scripts.js')
-
+require('./test.js')
 //= require jquery3
 //= require popper
 //= require bootstrap

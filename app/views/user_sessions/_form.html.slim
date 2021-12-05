@@ -1,6 +1,6 @@
 = form_with url: login_path, method: :post do |f|
-  container
-    row
+  .container
+    .row
       .text-white
         = f.label :email, User.human_attribute_name(:email)
     .row.pb-3
