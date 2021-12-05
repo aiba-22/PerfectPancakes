@@ -1,2 +1,37 @@
-h1 MyRecipes#edit
-p Find me in app/views/my_recipes/edit.html.slim
+body.bg-secondary.pt-5
+  .container.p-5
+    button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
+      | タイトルと写真を変更する
+    #modalForm.modal.fade[role="dialog"]
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close[type="button" data-dismiss="modal"]
+              span[aria-hidden="true"]
+                | ×
+              span.sr-only
+                | 閉じる
+            .modal-body
+              .form-group
+                = form_with model: @recipe do |f|
+                  .container
+                    .row
+                      = f.label :title
+                      = f.text_field :title
+                    .row.p-3
+                      = f.file_field :image, id: :recipe_img
+                    = f.submit "保存", class: 'btn btn-primary text-black m-2'
+
+
+
+    .container
+      .row.p-5
+          p
+              = @recipe.title
+      .row
+          .col
+              = image_tag @recipe.image_url, id: :img_prev
+      .row
+          = render 'recipe_lists/recipe_form', { recipe: @recipe, recipe_list: @recipe_list, step: @step}
+      .row
+          = render 'recipe_lists/recipe_lists', { recipe:@recipe, recipe_lists: @recipe_lists }

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :recipes
 
   get 'favorite_bakings/edit'
@@ -16,6 +15,9 @@ get 'login' => 'user_sessions#new', :as => :login
 post 'login' => "user_sessions#create"
 delete 'logout' => 'user_sessions#destroy', :as => :logout
 
+resources :recipes do
+  resources :recipe_lists, only: %i[create update destroy], shallow: true
+end
 
 end
 

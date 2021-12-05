@@ -8,3 +8,8 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: 'アカウント'
+      recipe: 
+          title: 'タイトル'
+      recipe_list: 
+          text: '本文'
+          step: 'ステップ'

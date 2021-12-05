@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# 画像アップロード機能
+gem 'carrierwave'
+# 画像処理ライブラリ
+gem 'mini_magick'
 
 # CSSフレームワーク
 gem 'bootstrap', '~> 4.3.1'
