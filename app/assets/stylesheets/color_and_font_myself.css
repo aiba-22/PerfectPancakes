@@ -161,3 +161,9 @@ object-fit:cover;
 width:33.333vw;
 height:33.333vw;
 }
+
+/*レシピ編集画面の写真トリミング*/
+.edit_recipe_img {
+    width: 500px;
+    object-fit: cover; /* この一行を追加するだけ！ */
+  }

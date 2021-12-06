@@ -1,21 +1,28 @@
-body.pt-5
+body.bg-secondary.pt-5
 
 .container.pt-5
   .card.mb-3[style="max-width: 100%;"]
-    .row.g-0
+    .row.g-5.p-1
       .col-md-12
         button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
           = t('.title_and_photo')
         = render 'partials/modal', { recipe: @recipe }
     .row.g-0
-      .col-md-4
-        = image_tag @recipe.image_url, id: :img_prev
-      .col-md-8
-        .card-body
+      .col-md-6.p-4
+        .row
           h5.card-title
             = @recipe.title
-          p.card-text
+          = image_tag @recipe.image_url, id: :img_prev, class: 'edit_recipe_img'
+      .col-md-6.p-4
+        .card-body
+          .row
             | 材料
+          = form_with model:@recipe do |f|
+            .row.material_container
+              = f.text_area :material
+            .row.pt-1
+              .col
+                = f.submit "材料を保存", class: 'btn btn-primary'
   .row
     p
       |▽　料理の手順を登録

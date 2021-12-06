@@ -11586,7 +11586,9 @@ p {
   }
 }
 
-
+.material_container{
+  height:300px;
+}
 
 header.masthead {
   padding-top: 9.5rem;
