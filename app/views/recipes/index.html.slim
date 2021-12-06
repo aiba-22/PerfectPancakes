@@ -1,64 +1,12 @@
-
 body.bg-secondary.pt-5
   .container.p-5
     button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
-      |  レシピを作成する
-    #modalForm.modal.fade[role="dialog"]
-      .modal-dialog
-        .modal-content
-          .modal-header
-            .form-group
-              .container
-                .row
-                  button.close[type="button" data-dismiss="modal"]
-                    span[aria-hidden="true"]
-                      | ×
-                    span.sr-only
-                      | 閉じる
-                .row
+      = t('.title_and_photo')
+    = render 'partials/modal', { recipe: @recipe }
 
-
-
-          .modal-body
-            .form-group
-              = form_with model: @recipe do |f|
-                .container
-                  .row
-                    = f.label :title
-                    = f.text_field :title
-                  .row.p-3
-                    = f.file_field :image, id: :recipe_img
-                  = f.submit "作成", class: 'btn btn-primary text-black m-2'
-          .modal-footer
-            .row.p-5
-                = form_with model: @recipe do |f|
-                - if @recipe.image.present?
-                    = image_tag f.image, id: :img_prev
-                - else
-                    = image_tag "default.png", id: :img_prev
-
-
-
-
-<h1>投稿一覧</h1>
-
-
-- @recipes.each do |recipe|
-    .container
-        .row.p-2
-            .col
-                .span
-                    = recipe.title
-    .span
-        - if recipe.image?
-            = image_tag recipe.image_url, size: '300x200'
-        - else
-    .span
-        = link_to "編集", edit_recipe_path(recipe.id)
-    .span
-        =link_to recipe_path(recipe.id), method: :delete
-          .btn.btn-primary
-              | 削除
-
-
+ul.recipe-ul
+  - @recipes.each do |recipe|
+    li.recipe-li
+      =link_to recipe_path(recipe.id)
+        = image_tag recipe.image_url
 

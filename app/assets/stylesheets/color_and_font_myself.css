@@ -141,3 +141,23 @@ button.bg-secondary:focus {
 a.text-secondary:hover, a.text-secondary:focus {
     color: #1b3551 !important;
 }
+
+/*マイレシピの写真を正方形に並べて配置する*/
+
+ul.recipe-ul{
+display:flex;
+flex-wrap:wrap;
+list-style:none;
+margin: 0;
+padding: 0;
+}
+li.recipe-li{
+width:33.333%;
+margin: 0;
+padding: 0;
+}
+img.recipe-img{
+object-fit:cover;
+width:33.333vw;
+height:33.333vw;
+}

@@ -1,0 +1,14 @@
+
+.container.pt-5
+  .card[style="max-width: 100%;"]
+    .card-body
+        = simple_format("step#{recipe_list.step}")
+    .card-body
+        = form_with model: recipe_list, remote: true do |f|
+            = f.text_area :text, class: 'form-control mb-3', id: 'js-new-comment-body'
+            = f.submit "上書き保存", class: 'btn btn-primary'
+    .card-body
+        =link_to recipe_list, method: :delete
+            .btn.btn-primary
+                | 削除
+
