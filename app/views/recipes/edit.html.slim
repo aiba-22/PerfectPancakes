@@ -1,32 +1,37 @@
 body.bg-secondary.pt-5
-
-.container.pt-5
-  .card.mb-3[style="max-width: 100%;"]
-    .row.g-5.p-1
-      .col-md-12
-        button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
-          = t('.title_and_photo')
-        = render 'partials/modal', { recipe: @recipe }
-    .row.g-0
-      .col-md-6.p-4
-        .row
-          h5.card-title
-            = @recipe.title
-          = image_tag @recipe.image_url, id: :img_prev, class: 'edit_recipe_img'
-      .col-md-6.p-4
-        .card-body
+  .container.pt-5
+    .row.p-3
+      .col-md-9
+      .col-md-3
+        = link_to recipes_path
+          button.btn.btn-success
+            |一覧に戻る
+    .card[style="max-width: 100%;"]
+      .row
+        .col-md-12
+          button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
+            = t('.title_and_photo')
+          = render 'partials/modal', { recipe: @recipe }
+      .row.g-0
+        .col-md-6.p-4
           .row
-            | 材料
-          = form_with model:@recipe do |f|
-            .row.material_container
-              = f.text_area :material
-            .row.pt-1
-              .col
-                = f.submit "材料を保存", class: 'btn btn-primary'
-  .row
-    p.text-white
-      |▽　料理の手順を登録
-  .row
-    = render 'recipe_lists/recipe_form', { recipe: @recipe, recipe_list: @recipe_list, step: @step}
-  .row
-    = render 'recipe_lists/recipe_lists', { recipe:@recipe, recipe_lists: @recipe_lists }
+            h5.card-title
+              = @recipe.title
+            = image_tag @recipe.image_url, id: :img_prev, class: 'edit_recipe_img'
+        .col-md-6.p-4
+          .card-body
+            .row
+              | 材料
+            = form_with model:@recipe do |f|
+              .row.material_container
+                = f.text_area :material
+              .row.pt-1
+                .col
+                  = f.submit "材料を保存", class: 'btn btn-primary'
+    .row
+      p.text-white
+        |▽　料理の手順を登録
+    .row
+      = render 'recipe_lists/recipe_form', { recipe: @recipe, recipe_list: @recipe_list, step: @step}
+    .row
+      = render 'recipe_lists/recipe_lists', { recipe:@recipe, recipe_lists: @recipe_lists }

@@ -1,0 +1,33 @@
+body.pt-5
+    .container.pt-5
+        .row.pt-2.pb-2
+            .col-md-3.p-1
+                = link_to "/recipes/#{@recipe.id}/edit"
+                    button.btn.btn-success
+                        |レシピを編集する
+            .col-md-9.p-1
+                = link_to '/recipes'
+                    button.btn.btn-success
+                        |一覧に戻る
+        .card.mb-3[style="max-width: 100%;"]
+            .row.g-0.p-1
+                h3.card-title.text-center
+                    = @recipe.title
+            .row.g-0.p-1
+                .col-md-6.p-4
+                    .row
+                        = image_tag @recipe.image_url, id: :img_prev, class: 'edit_recipe_img'
+                .col-md-6.p-4
+                    .card-body
+                        .row
+                            | 材料
+                        .row
+                            p = @recipe.material
+            .row.g-0.p-1.text-center
+                h5
+                    | 作り方
+            .row.g-0.p-1.text-center
+                - @recipe_lists.each do |f|
+                    .cor.p-3
+                        p - ステップ#{f.step} -
+                        p #{f.text}

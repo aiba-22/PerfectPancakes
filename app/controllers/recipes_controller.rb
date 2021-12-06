@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: %i[show destroy edit update]
   def index
     @recipe = Recipe.new
     @recipes = Recipe.where(user_id: current_user.id).includes(:user).order(created_at: :asc)
@@ -32,8 +33,13 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe_lists = @recipe.recipe_lists
   end
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:title, :image, :material)
