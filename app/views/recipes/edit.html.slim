@@ -24,7 +24,7 @@ body.bg-secondary.pt-5
               .col
                 = f.submit "材料を保存", class: 'btn btn-primary'
   .row
-    p
+    p.text-white
       |▽　料理の手順を登録
   .row
     = render 'recipe_lists/recipe_form', { recipe: @recipe, recipe_list: @recipe_list, step: @step}
