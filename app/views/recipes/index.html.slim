@@ -3,7 +3,7 @@ body.bg-secondary.pt-5
     .row.pt-2
       button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
         = t('.title_and_photo')
-      = render 'partials/modal', { recipe: @recipe }
+      = render 'shared/modal', { recipe: @recipe }
     .row
       p.text-white.pt-5
         |レシピ一覧

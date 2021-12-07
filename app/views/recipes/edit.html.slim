@@ -15,7 +15,7 @@ body.bg-secondary.pt-5
           =link_to recipe_path(@recipe), method: :delete
               button.btn.btn-success
                   |削除
-          = render 'partials/modal', { recipe: @recipe }
+          = render 'shared/modal', { recipe: @recipe }
       .row.g-0
         .col-md-6.p-4
           .row
