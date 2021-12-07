@@ -17,11 +17,12 @@ html
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 
   body
-    - if current_user
-      = render 'shared/header'
-    -else
-      = render 'shared/login_header'
-    = render 'shared/flash_message'
+    header
+      - if current_user
+        = render 'shared/header'
+      -else
+        = render 'shared/login_header'
+      = render 'shared/flash_message'
     = yield
 
     //googleの画像解析のAPIを使うためのjs

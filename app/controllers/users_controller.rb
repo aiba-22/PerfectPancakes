@@ -19,8 +19,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to login_path,success: t('.success')
+      redirect_to login_path, flash: { success: t('.success') }
     else
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -28,8 +29,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: "User was successfully updated."
+      redirect_to @user, flash: { success: t('.success') }
     else
+      flash.now[:danger] = t('.fail')
       render :edit, status: :unprocessable_entity
     end
   end
