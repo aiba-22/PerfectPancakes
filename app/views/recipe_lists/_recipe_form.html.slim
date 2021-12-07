@@ -1,0 +1,16 @@
+= form_with model: recipe_list, url: [recipe, recipe_list], remote: true do |f|
+    -if step.present?
+        .p step
+        = f.select :step
+            - for num in 0..19 do
+                - if "#{num}" == "#{step.step}" then
+                    <option selected> #{step.step + 1} </option>
+                - else
+                    option #{num + 1}
+    -else
+        .p.text-white step
+        = f.select :step
+            - for num in 1..20 do
+                option #{num}
+    = f.text_area :text, class: 'form-control mt-3 mb-3', id: 'js-new-comment-body'
+    = f.submit "ステップを追加", class: 'btn btn-primary'

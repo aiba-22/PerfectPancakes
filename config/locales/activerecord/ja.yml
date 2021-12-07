@@ -9,7 +9,7 @@ ja:
         password_confirmation: 'パスワード確認'
         name: 'アカウント'
       recipe: 
-          title: 'タイトル'
+          title: 'タイトル ※必須'
       recipe_list: 
           text: '本文'
           step: 'ステップ'
