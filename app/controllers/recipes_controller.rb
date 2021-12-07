@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to request.referer
+    redirect_to action: :index
   end
 
   def edit
@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
+    redirect_to(edit_recipe_path(@recipe.id))
   end
 
   def show
