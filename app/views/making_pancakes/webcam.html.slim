@@ -86,7 +86,7 @@ javascript:
   //フロント側に表示する結果ラベルをDOMに要素追加する
     labelContainer = document.getElementById("label-container");
 
-  //待ちのボタンを見えなくする
+  //進捗インジケータを見えなくする
     button.className = "transparent-img";
   //画像を常に識別し結果を表示するためのループ処理
     window.requestAnimationFrame(loop);
@@ -94,27 +94,24 @@ javascript:
 
 
   async function loop() {
-  //ユーザーが設定した焼き加減の変数取得
-
-  const buf = #{@user};
-
   //canvasに静止画を格納する
     var canvas =document.getElementById("canvas")
     canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)
     const prediction = await model.predict(canvas);
     //数値によってラベルの結果を変更する
-      if (( prediction[0].probability.toFixed(2)*buf) >= 0.02) {
+    //#{@user}はuserモデルのfavoriteカラム（焼き加減）の数値が入るようになっている
+      if (( prediction[0].probability.toFixed(2)*#{@user}) >= 0.02) {
         labelContainer.className = "mocchiri ";
         labelContainer.innerHTML = "いまだ！！";
       }
 
-      if (( prediction[0].probability.toFixed(2)*buf) < 0.02 && (prediction[0].probability.toFixed(2)*buf) >= 0.01) {
+      if (( prediction[0].probability.toFixed(2)*#{@user}) < 0.02 && (prediction[0].probability.toFixed(2)*#{@user}) >= 0.01) {
         labelContainer.className = "purupuru2";
         labelContainer.innerHTML = "もうすこし";
       }
 
 
-      if (( prediction[0].probability.toFixed(2)*buf) < 0.01 && (prediction[0].probability.toFixed(2)*buf) >= 0) {
+      if (( prediction[0].probability.toFixed(2)*#{@user}) < 0.01 && (prediction[0].probability.toFixed(2)*#{@user}) >= 0) {
           labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "まだまだ";
       }
