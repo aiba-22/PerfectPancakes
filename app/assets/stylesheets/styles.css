@@ -11591,8 +11591,7 @@ p {
 }
 
 header.masthead {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  height: 46rem;
   text-align: center;
   color: #fff;
   background-image: url("top_photo.png");
