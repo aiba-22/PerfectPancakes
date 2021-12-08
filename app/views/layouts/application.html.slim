@@ -24,7 +24,9 @@ html
         = render 'shared/login_header'
       = render 'shared/flash_message'
     = yield
-
+    footer
+      - if current_user
+        = render 'shared/footer'
     //googleの画像解析のAPIを使うためのjs
     script[src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"]
     script[src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"]
