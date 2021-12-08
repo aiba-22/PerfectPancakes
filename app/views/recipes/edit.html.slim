@@ -1,21 +1,16 @@
-body.bg-secondary.pt-5
+body.bg-secondary
   .container.pt-5
-    .row.p-3
-      .col-md-9
-      .col-md-3
+    .row.g-2.pb-1
+      .col
         = link_to recipes_path
           button.btn.btn-success
             |一覧に戻る
     .card[style="max-width: 100%;"]
       .row
-        .col-md-9
+        .col
           button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
             = t('.title_and_photo')
-        .col-md-3
-          =link_to recipe_path(@recipe), method: :delete
-              button.btn.btn-success
-                  |削除
-          = render 'partials/modal', { recipe: @recipe }
+          = render 'shared/modal', { recipe: @recipe }
       .row.g-0
         .col-md-6.p-4
           .row
@@ -39,3 +34,8 @@ body.bg-secondary.pt-5
       = render 'recipe_lists/recipe_form', { recipe: @recipe, recipe_list: @recipe_list, step: @step}
     .row
       = render 'recipe_lists/recipe_lists', { recipe:@recipe, recipe_lists: @recipe_lists }
+    .row.pt-5
+      .col-md-12.text-center
+        =link_to recipe_path(@recipe), method: :delete, data: {confirm: "このレシピのデータが全て削除されます、宜しいですか？"}
+          button.btn.btn-success
+            |レシピを削除

@@ -1,11 +1,11 @@
-body.bg-secondary.pt-5
-  .container.pt-5.pb-5
-    .row.pt-2
+body.bg-secondary
+  .container
+    .row
       button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
         = t('.title_and_photo')
-      = render 'partials/modal', { recipe: @recipe }
+      = render 'shared/modal', { recipe: @recipe }
     .row
-      p.text-white.pt-5
+      p.text-white.pt-3
         |レシピ一覧
     .row
       ul.recipe_ul

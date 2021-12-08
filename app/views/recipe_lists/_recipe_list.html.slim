@@ -8,7 +8,7 @@
             = f.text_area :text, class: 'form-control mb-3', id: 'js-new-comment-body'
             = f.submit "上書き保存", class: 'btn btn-primary'
     .card-body
-        =link_to recipe_list, method: :delete
+        =link_to recipe_list, method: :delete, data: {confirm: "削除して宜しいですか？"}
             .btn.btn-primary
                 | 削除
 

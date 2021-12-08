@@ -24,11 +24,26 @@ ja:
     create:
       success: 'ログインしました'
       fail: 'ログインに失敗しました'
-      destroy:
+    destroy:
       success: 'ログアウトしました'
   recipes:
     index:
       title_and_photo: 'レシピを作成する'
+    create:
+      success: '作成しました'
     edit:
       title_and_photo: 'レシピ名と写真を変更する'
-    
+    destroy:
+      success: '削除しました'
+    update:
+      success: '更新しました'
+  recipe_lists:
+    create:
+      success: 'ステップを追加し保存しました'
+    update:
+      success: '一件のステップを更新しました'
+    destroy:
+      success: 'ステップを削除しました'
+  favorite_bakings:
+    edit:
+      success: '登録しました'
