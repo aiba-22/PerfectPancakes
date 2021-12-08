@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'favorite_bakings/edit'
   get 'making_pancakes/simple_recipe'
   get 'making_pancakes/favorite_baking'
-  get 'making_pancakes/favorite_baking'
   get 'making_pancakes/index'
   get 'making_pancakes/webcam'
   get 'my_page_menus/index'
