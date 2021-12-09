@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   def index
     @recipe = Recipe.new
     @recipes = Recipe.where(user_id: current_user.id).includes(:user).order(created_at: :asc)
+    @recipes = Kaminari.paginate_array(@recipes).page(params[:page])
   end
 
   def create
