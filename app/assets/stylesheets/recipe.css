@@ -24,3 +24,13 @@
     margin: auto;
     object-fit: cover;
   }
+
+.material_container{
+  height:300px;
+}
+
+/*レシピ編集画面の写真トリミング*/
+.edit_recipe_img {
+  width: 500px;
+  object-fit: cover;
+}

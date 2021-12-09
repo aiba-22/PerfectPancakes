@@ -1,6 +1,8 @@
+- content_for :css do
+    = stylesheet_link_tag 'my_page_menus'
 body.bg-secondary
     .container.h-100
-        .row.my_page_container
+        .row.container
             .col-md-2
                 .btn-circle
                     = link_to 'カメラを起動', making_pancakes_webcam_path, data: {"turbolinks" => false}
