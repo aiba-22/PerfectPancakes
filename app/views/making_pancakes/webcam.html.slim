@@ -2,32 +2,19 @@
     = stylesheet_link_tag 'webcam'
 
 .webcam-container.bg-secondary
-  .container
-    .row.pt-5
-  .webcambox
-    video#video.webcam-img[autoplay playsinline]
-    .start
-      .div[id="button" onclick="init()"]
-        |スタート
-        .h5.pt-5
-          |フライパンに生地を
-        .h5
-          |流し込んだら
-        .h5
-          |スタートを押してください
-    .label
-      #label-container
-      canvas#canvas.transparent-img
-  .webcom-section
-    .row
-      .col.text-white
-      -if current_user
-        =link_to '焼き加減調整', making_pancakes_favorite_baking_path
-    .row.pt-3
-      .col.text-white
-      -if current_user
-        =link_to 'マイページに戻る', making_pancakes_index_path
-
+  video#video.webcam-img[autoplay playsinline]
+  .label
+    #label-container
+    canvas#canvas.transparent-img
+  .start
+    .div[id="button" onclick="init()"]
+      |スタート
+      .h5.pt-5
+        |フライパンに生地を
+      .h5
+        |流し込んだら
+      .h5
+        |スタートを押してください
 
 
 javascript:
