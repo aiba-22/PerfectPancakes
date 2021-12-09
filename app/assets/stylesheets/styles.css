@@ -78,8 +78,6 @@
 
 body {
   margin: 0;
-  height: 100%;
-  padding-bottom: 100px;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -11331,8 +11329,10 @@ html {
 }
 
 body {
+  height: 100%;
+  padding-bottom: 100px;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 footer{

@@ -36,8 +36,10 @@ body.bg-secondary
       = render 'recipe_lists/recipe_form', { recipe: @recipe, recipe_list: @recipe_list, step: @step}
     .row
       = render 'recipe_lists/recipe_lists', { recipe:@recipe, recipe_lists: @recipe_lists }
-    .row.pt-5
+    .row.pt-3.pb-5
       .col-md-12.text-center
         =link_to recipe_path(@recipe), method: :delete, data: {confirm: "このレシピのデータが全て削除されます、宜しいですか？"}
           button.btn.btn-success
             |レシピを削除
+    .row.pb-5
+    .row.pb-5
