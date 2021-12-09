@@ -4,5 +4,5 @@ class Recipe < ApplicationRecord
   has_many :recipe_lists,dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
-  validates :material, presence: true, length: { maximum: 300 }
+  validates :material, length: { maximum: 300 }
 end
