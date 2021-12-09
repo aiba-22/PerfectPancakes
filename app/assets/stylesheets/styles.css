@@ -11344,7 +11344,7 @@ p {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding-bottom: 10rem;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
