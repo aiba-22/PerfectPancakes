@@ -1,5 +1,5 @@
 body
-    .container.pt-5
+    .container.padding_100
         .row.pt-2.pb-2
             .col-md-3.p-1
                 = link_to "/recipes/#{@recipe.id}/edit"
@@ -32,4 +32,3 @@ body
                     .cor.p-3
                         p - ステップ#{f.step} -
                         = simple_format(f.text)
-            .row.pb-5.pt-5

@@ -41,6 +41,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 # railsでslimを利用するためのgem
 gem 'slim-rails'
+# ページネーション
+gem 'kaminari'
 # html.erbをhtmle.slimに変換するためのgem
 gem 'html2slim'
 #日本語化

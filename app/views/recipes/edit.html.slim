@@ -1,7 +1,7 @@
 - content_for :css do
     = stylesheet_link_tag 'recipe'
 body.bg-secondary
-  .container.pt-5
+  .container.pt-3.padding_100
     .row.g-2.pb-1
       .col
         = link_to recipes_path
@@ -41,5 +41,3 @@ body.bg-secondary
         =link_to recipe_path(@recipe), method: :delete, data: {confirm: "このレシピのデータが全て削除されます、宜しいですか？"}
           button.btn.btn-success
             |レシピを削除
-    .row.pb-5
-    .row.pb-5
