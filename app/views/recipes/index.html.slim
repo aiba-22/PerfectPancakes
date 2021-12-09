@@ -1,6 +1,6 @@
 body.bg-secondary
   .container
-    .row
+    .row.pt-3
       button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
         = t('.title_and_photo')
       = render 'shared/modal', { recipe: @recipe }

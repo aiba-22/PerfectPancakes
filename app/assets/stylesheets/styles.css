@@ -2993,6 +2993,21 @@ textarea.form-control-lg {
 .input-group .form-select.is-invalid:focus {
   z-index: 3;
 }
+.btn-circle.small a{
+  display:block;
+  width:100px;
+  height:100px;
+  margin:1em auto;
+  line-height:100px;
+  background:#ffc800;
+  border-radius:100%;
+  color:#212529;
+  font-size:0.8rem;
+  font-weight:bold;
+  text-decoration:none;
+  text-align:center;
+}
+
 .btn-circle a{
   display:block;
   width:150px;
@@ -11310,11 +11325,18 @@ textarea.form-control-lg {
 }
 html {
   scroll-padding-top: 4.5rem;
+  height: 100%;
 }
 
 body {
+  height: 100%;
+  padding-bottom: 100px;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: visible;
+}
+
+footer{
+  height:100px
 }
 
 p {
@@ -11322,7 +11344,7 @@ p {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding-bottom: 10rem;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
@@ -11427,172 +11449,9 @@ p {
   }
 }
 
-.webcom-section{
-  position:absolute;
-}
-
-
-.webcam-container{
-  width: auto;
-  height: 55rem;
-  background-color: #284E78 !important;
-}
-
-
-.webcam-img {
-  width: 100%;
-  height: 15rem;
-  position: absolute;
-  margin: 1em 1;
-  background-color:#ECD662;/*背景色*/
-  border:5px solid #ECD662;/*線*/
-  border-radius: 10px;/*角の丸み*/
-  }
-.transparent-img {
-  opacity:0;
-  width: 0px;
-}
-.webcambox {
-    position: relative;
-    width: 100%;
-    padding-top: 10%;
-    margin-bottom: 10rem;
-}
-
-.start {
-  text-align: center;
-  position: relative;
-  font-size: 3rem;
-  font-weight: 3rem;
-  line-height: 3rem;
-  margin-top: 2rem;
-  font-family: "DotGothic16";
-}
-.label {
-  text-align: center;
-  position: relative;
-  font-weight: 3rem;
-  line-height: 3rem;
-
-}
-.webcambox.decoration {
-  position: absolute;
-  text-align: center;
-}
-
-.concentration-line {
-  width: 100%;
-  height: 100vw;
-  background: repeating-conic-gradient(transparent 0 5deg, #4169e1 5.2deg 10deg, transparent 10.2deg 15deg);
-  mask-image: radial-gradient(transparent 0% 2%, #FFF 30%);
-  transform: rotate(0deg);
-  animation: rotate-anim 20s linear infinite;
-}
-
-
-.mocchiri {
-  animation: mocchiri 3s infinite;
-  font-size: 5rem;
-  color: #FFFFFF;
-  font-family: "DotGothic16";
-}
-@keyframes mocchiri {
-  0% {
-      transform: scale(1, 0.8);
-  }
-  20% {
-      transform: scale(0.8, 1.1);
-  }
-  95% {
-      transform: scale(1, 1);
-  }
-  100% {
-      transform: scale(1, 0.8);
-  }
-}
-.reflection::after {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 100%;
-  position: absolute;
-  top: -180px;
-  left: 0;
-  background-color: #FFF;
-  opacity: 0;
-  transform: rotate(45deg);
-  animation: reflect 2s ease-in-out infinite;
-  -webkit-transform: rotate(45deg);
-  -webkit-animation: reflect 2s ease-in-out infinite;
-}
-@keyframes reflect {
-  0% { transform: scale(0) rotate(45deg); opacity: 0; }
-  80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
-  81% { transform: scale(4) rotate(45deg); opacity: 1; }
-  100% { transform: scale(50) rotate(45deg); opacity: 0; }
-}
-@-webkit-keyframes reflect {
-  0% { transform: scale(0) rotate(45deg); opacity: 0; }
-  80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
-  81% { transform: scale(4) rotate(45deg); opacity: 1; }
-  100% { transform: scale(50) rotate(45deg); opacity: 0; }
-}
-
-
-.purupuru2 {
-  animation: purupuru2 0.1s infinite;
-  font-size: 3rem;
-  color: #FFFFFF;
-  font-family: "DotGothic16";
-}
-@keyframes purupuru2 {
-  0% {
-      transform: scale(1, 1);
-  }
-  50% {
-      transform: scale(0.98, 0.95)
-  }
-}
-
-.yureru-s {
-  animation: yureru-s 1s infinite;
-  font-size: 2rem;
-  color: #FFFFFF;
-  font-family: "DotGothic16";
-
-}
-
-@keyframes yureru-s {
-  0% {
-      transform: translate(2px, 0px);
-  }
-  5% {
-      transform: translate(-2px, 0px);
-  }
-  10% {
-      transform: translate(2px, 0px);
-  }
-  15% {
-      transform: translate(-2px, 0px);
-  }
-  20% {
-      transform: translate(2px, 0px);
-  }
-  25% {
-      transform: translate(-2px, 0px);
-  }
-  30% {
-      transform: translate(0px, 0px);
-  }
-}
-
-.material_container{
-  height:300px;
-}
 
 header.masthead {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  height: 46rem;
   text-align: center;
   color: #fff;
   background-image: url("top_photo.png");
@@ -11960,6 +11819,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .footer {
   text-align: center;
+  height: 100px;
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }

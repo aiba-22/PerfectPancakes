@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 /*------------------------------------
 - COLOR secondary
@@ -143,8 +144,3 @@ a.text-secondary:hover, a.text-secondary:focus {
 }
 
 
-/*レシピ編集画面の写真トリミング*/
-.edit_recipe_img {
-    width: 500px;
-    object-fit: cover; /* この一行を追加するだけ！ */
-  }

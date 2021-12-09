@@ -1,4 +1,4 @@
 class RecipeList < ApplicationRecord
   belongs_to :recipe
-  validates :text, presence: true, length: { maximum: 500 }
+  validates :text, presence: true, length: { maximum: 300 }
 end

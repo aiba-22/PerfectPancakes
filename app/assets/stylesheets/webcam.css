@@ -1,0 +1,154 @@
+
+  .webcam-container{
+    width: auto;
+    position: relative;
+    align-items: center;
+    height: 100%;
+    background-color: #284E78 !important;
+  }
+
+  .webcam-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color:#ECD662;/*背景色*/
+    border-radius: 10px;/*角の丸み*/
+    }
+  .transparent-img {
+    opacity:0;
+    width: 0px;
+  }
+
+
+  .start {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 3rem;
+    font-weight: 3rem;
+    line-height: 3rem;
+    font-family: "DotGothic16";
+  }
+  .label {
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    font-weight: 3rem;
+    line-height: 3rem;
+
+  }
+  .webcambox.decoration {
+    position: absolute;
+    text-align: center;
+  }
+
+  .concentration-line {
+    width: 100%;
+    height: 100vw;
+    background: repeating-conic-gradient(transparent 0 5deg, #4169e1 5.2deg 10deg, transparent 10.2deg 15deg);
+    mask-image: radial-gradient(transparent 0% 2%, #FFF 30%);
+    transform: rotate(0deg);
+    animation: rotate-anim 20s linear infinite;
+  }
+
+  .mocchiri {
+    animation: mocchiri 3s infinite;
+    font-size: 4rem;
+    color: #FFFFFF;
+    font-family: "DotGothic16";
+  }
+  @keyframes mocchiri {
+    0% {
+        transform: scale(1, 0.8);
+    }
+    20% {
+        transform: scale(0.8, 1.1);
+    }
+    95% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(1, 0.8);
+    }
+  }
+  .reflection::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: -180px;
+    left: 0;
+    background-color: #FFF;
+    opacity: 0;
+    transform: rotate(45deg);
+    animation: reflect 2s ease-in-out infinite;
+    -webkit-transform: rotate(45deg);
+    -webkit-animation: reflect 2s ease-in-out infinite;
+  }
+  @keyframes reflect {
+    0% { transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { transform: scale(50) rotate(45deg); opacity: 0; }
+  }
+  @-webkit-keyframes reflect {
+    0% { transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { transform: scale(50) rotate(45deg); opacity: 0; }
+  }
+
+  .purupuru2 {
+    animation: purupuru2 0.1s infinite;
+    font-size: 3rem;
+    color: #FFFFFF;
+    font-family: "DotGothic16";
+  }
+  @keyframes purupuru2 {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(0.98, 0.95)
+    }
+  }
+
+  .yureru-s {
+    animation: yureru-s 1s infinite;
+    font-size: 2rem;
+    color: #FFFFFF;
+    font-family: "DotGothic16";
+  }
+
+  @keyframes yureru-s {
+    0% {
+        transform: translate(2px, 0px);
+    }
+    5% {
+        transform: translate(-2px, 0px);
+    }
+    10% {
+        transform: translate(2px, 0px);
+    }
+    15% {
+        transform: translate(-2px, 0px);
+    }
+    20% {
+        transform: translate(2px, 0px);
+    }
+    25% {
+        transform: translate(-2px, 0px);
+    }
+    30% {
+        transform: translate(0px, 0px);
+    }
+  }

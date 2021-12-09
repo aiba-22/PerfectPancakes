@@ -1,12 +1,17 @@
+- content_for :css do
+    = stylesheet_link_tag 'my_page_menus'
 body.bg-secondary
-    .container
-        .row
-            .col.p-5
-                .h1.text-center.text-white
-                    | マイページメニュー
-        .row
-            .btn-circle.pb-5
-                = link_to 'パンケーキを作る', making_pancakes_index_path
-        .row
-            .btn-circle.pb-5
-                = link_to 'マイレシピ', recipes_path
+    .container.h-100
+        .row.my_page_container
+            .col-md-2
+                .btn-circle
+                    = link_to 'カメラを起動', making_pancakes_webcam_path, data: {"turbolinks" => false}
+            .col-md-4
+                .btn-circle.small
+                    =link_to '焼き加減調整', making_pancakes_favorite_baking_path
+            .col-md-2
+                .btn-circle
+                    = link_to 'マイレシピ', recipes_path
+            .col-md-4
+                .btn-circle.small
+                    = link_to '簡単なレシピ', making_pancakes_simple_recipe_path
