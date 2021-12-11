@@ -1,15 +1,15 @@
 nav class="navbar navbar-expand-lg navbar-dark bg-dark"
   .container
-    a.navbar-brand[href="/"]
-      | PerfectPancakes
+    .navbar-brand
+      = link_to "PerfectPancakes", root_path, data: {"turbolinks" => false}
     button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
       ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0"
       li class="nav-item"
-          =link_to 'ログイン', login_path
+          =link_to 'ログイン', login_path, data: {"turbolinks" => false}
       li class="nav-item"
-          =link_to '新規登録', new_user_path
+          =link_to '新規登録', new_user_path, data: {"turbolinks" => false}
       li class="nav-item"
           =link_to 'カメラ起動', making_pancakes_webcam_path, data: {"turbolinks" => false}
 
