@@ -8,9 +8,9 @@ class MakingPancakesController < ApplicationController
 
   def webcam
     if current_user
-      @user = User.find(current_user.id).favorite_baking
+      @favorite_baking = User.find(current_user.id).favorite_baking
     else
-      @user=1
+      @favorite_baking=1
     end
   end
   def favorite_baking
