@@ -1,13 +1,13 @@
 = form_for @user, local: true do |f|
   .container
-    .row
+    .row.text-danger
       - if @user.errors.any?
         #error_explanation
           ul.list-unstyled
             - @user.errors.full_messages.each do |message|
               li = message
   .container
-    .row
+    .rいw
       .text-white
         = f.label :name
     .row.pb-3
@@ -31,6 +31,6 @@
     .row.pb-3
       .col-10.offset-1
         = f.text_field :password_confirmation, type: 'password', class: 'form-control'
-    .row.pt-5
+    .row.py-5
       .col-4.offset-4
         = f.submit "作成", class: 'btn btn-primary text-black'
