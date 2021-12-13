@@ -11,26 +11,26 @@
       .text-white
         = f.label :name
     .row.pb-3
-      .col
-        = f.text_field :name, class: 'form'
-    row
+      .col-10.offset-1
+        = f.text_field :name, class: 'form-control'
+    .row
       .text-white
         = f.label :email
     .row.pb-3
-      .col
-        = f.text_field :email, class: 'form'
-    row
+      .col-10.offset-1
+        = f.text_field :email, class: 'form-control'
+    .row
       .text-white
         = f.label :password
     .row.pb-3
-      .col
-        = f.text_field :password, type: 'password', class: 'form'
-    row
+      .col-10.offset-1
+        = f.text_field :password, type: 'password', class: 'form-control'
+    .row
       .text-white
         = f.label :password_confirmation
     .row.pb-3
-      .col
-        = f.text_field :password_confirmation, type: 'password', class: 'form'
-    row
-      .container
-        = f.submit "作成", class: 'btn btn-primary text-black m-2'
+      .col-10.offset-1
+        = f.text_field :password_confirmation, type: 'password', class: 'form-control'
+    .row.pt-5
+      .col-4.offset-4
+        = f.submit "作成", class: 'btn btn-primary text-black'

@@ -1,13 +1,17 @@
-p#notice = notice
+body.bg-secondary.padding_100
+  .container
+    .row
+      .text-center
+        h2.m-5.text-white
+          |登録内容
+    .row.text-center.text-white
+      p
+        = t".name"
+      p
+        = @user.name
+    .row.text-center.text-white.pt-5
+      p
+        = t".email"
+      p
+        = @user.email
 
-p
-  strong Name:
-  = @user.name
-
-p
-  strong Email:
-  = @user.email
-
-=> link_to 'Edit', edit_user_path(@user)
-'|
-=< link_to 'Back', users_path
