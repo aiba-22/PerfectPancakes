@@ -22,6 +22,7 @@ ja:
       success: '更新できました'
     update:
       success: '更新できました'
+      fail: '更新できませんでした'
   user_sessions:
     new:
       title: 'ログイン'

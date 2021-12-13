@@ -1,22 +1,28 @@
 body.bg-secondary
-    .container.mt
+    .container
         .row
             .text-center
                 h2.m-5.text-white
                     | ユーザー編集
+    .container
+    = form_with model:@user, url:user_path, local:true do |f|
         .row
-        = form_with model: @user, url:user_path, local:true do |f|
-            .form-group.text-white.text-center
-                .col
-                    = f.label :name
-                .col-10.offset-1
-                    = f.text_field :name ,{class:"form-control"}
-            .form-group.text-white.text-center
-                .col
-                    = f.label :email
-                .col-10.offset-1
-                    =f.text_field :email ,{class:"form-control"}
-            .form-group.text-center.pt-5
-                .col-4.offset-4
-                    = f.submit '更新する', class: 'btn btn-primary text-black'
+        - if @user.errors.any?
+            #error_explanation
+                ul.list-unstyled.text-center.text-danger
+                    - @user.errors.full_messages.each do |message|
+                        li = message
+        .form-group.text-white.text-center
+            .col
+                = f.label :name
+            .col-10.offset-1
+                = f.text_field :name ,{class:"form-control"}
+        .form-group.text-white.text-center
+            .col
+                = f.label :email
+            .col-10.offset-1
+                =f.text_field :email ,{class:"form-control"}
+        .form-group.text-center.pt-5
+            .col-4.offset-4
+                = f.submit '更新する', class: 'btn btn-primary text-black'
 
