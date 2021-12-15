@@ -5,13 +5,13 @@ body.bg-secondary
         .row.my_page_container
             .col-md-2
                 .btn-circle
-                    = link_to 'カメラを起動', making_pancakes_webcam_path, data: {"turbolinks" => false}
+                    = link_to 'カメラを起動', webcams_index_path, data: {"turbolinks" => false}
             .col-md-4
                 .btn-circle.small
-                    =link_to '焼き加減調整', making_pancakes_favorite_baking_path
+                    =link_to '焼き加減調整', favorite_bakings_edit_path
             .col-md-2
                 .btn-circle
                     = link_to 'マイレシピ', recipes_path
             .col-md-4
                 .btn-circle.small
-                    = link_to '簡単なレシピ', making_pancakes_simple_recipe_path
+                    = link_to '簡単なレシピ', my_page_menus_simple_recipe_path
