@@ -6,9 +6,9 @@
     .card-body
         = form_with model: recipe_list, remote: true do |f|
             = f.text_area :text, class: 'form-control mb-3', id: 'js-new-comment-body'
-            = f.submit "上書き保存", class: 'btn btn-primary'
+            = f.submit "更新", class: 'btn btn-primary'
     .card-body
         =link_to recipe_list, method: :delete, data: {confirm: "削除して宜しいですか？"}
-            .btn.btn-primary
+            .btn.btn-danger
                 | 削除
 
