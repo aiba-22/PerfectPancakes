@@ -3,14 +3,14 @@
 body.bg-secondary
   .container.pt-3.padding_100
     .row.g-2.pb-1
-      .col
+      .col.text-right
         = link_to recipes_path
-          button.btn.btn-success
+          button.btn.btn-light
             |一覧に戻る
     .card[style="max-width: 100%;"]
       .row
         .col
-          button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
+          button.btn.btn-primary[data-toggle="modal" data-target="#modalForm"]
             = t('.title_and_photo')
           = render 'shared/modal', { recipe: @recipe }
       .row.g-0
@@ -37,7 +37,7 @@ body.bg-secondary
     .row
       = render 'recipe_lists/recipe_lists', { recipe:@recipe, recipe_lists: @recipe_lists }
     .row.pt-3.pb-5
-      .col-md-12.text-center
+      .col-md-12.text-right.pt-5
         =link_to recipe_path(@recipe), method: :delete, data: {confirm: "このレシピのデータが全て削除されます、宜しいですか？"}
-          button.btn.btn-success
+          button.btn.btn-danger
             |レシピを削除

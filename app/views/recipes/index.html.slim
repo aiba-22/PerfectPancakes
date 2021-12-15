@@ -1,8 +1,9 @@
 body.bg-secondary
   .container.padding_100
     .row
-      button.btn.btn-success[type="button" data-toggle="modal" data-target="#modalForm"]
-        = t('.title_and_photo')
+      button.btn.btn-primary[type="button" data-toggle="modal" data-target="#modalForm"]
+        .m-1
+          = t('.title_and_photo')
       = render 'shared/modal', { recipe: @recipe }
 
     .row
