@@ -57,7 +57,7 @@ ja:
     destroy:
       success: 'ステップを削除しました'
   favorite_bakings:
-    edit:
+    update:
       success: '登録しました'
   views:
     pagination:
