@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   #再パスワードの為のコントローラー
   resources :password_resets, only: [:new, :edit, :create, :update]
 
+  #mailer用のルーティング
+  Rails.application.routes.draw do
+    if Rails.env.development?
+      mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    end
+  end
+
   get 'my_page_menus/index'
 
   #マイページにある４つのリンクのルーティング
@@ -16,14 +23,6 @@ Rails.application.routes.draw do
   get 'webcams/index'
   get 'favorite_bakings/edit'
   get 'favorite_bakings/update'
-
-
-  #mailer用のルーティング
-  Rails.application.routes.draw do
-    if Rails.env.development?
-      mount LetterOpenerWeb::Engine, at: "/letter_opener"
-    end
-  end
 
   resources :recipes
   #レシピリストはレシピでネストした形にする
