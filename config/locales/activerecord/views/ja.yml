@@ -33,6 +33,11 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  password_resets:
+    update:
+      success: 'パスワードの再設定ができました'
+    create:
+      success: '再パスワード依頼を受け付けました。メールをご確認下さい。'
   recipes:
     index:
       title_and_photo: 'レシピを作成する'
