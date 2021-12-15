@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :password_resets, only: [:new, :edit, :create, :update]
   resources :recipes
 
   get 'favorite_bakings/edit'
@@ -18,6 +20,11 @@ delete 'logout' => 'user_sessions#destroy', :as => :logout
 resources :recipes do
   resources :recipe_lists, only: %i[create update destroy], shallow: true
 end
-
+#mailer用のルーティング
+Rails.application.routes.draw do
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+end
 end
 
