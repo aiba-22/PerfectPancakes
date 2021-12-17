@@ -8,6 +8,7 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: 'アカウント'
+        accepted: '利用規約、及び、個人情報の取扱に同意する'
       recipe: 
           title: 'タイトル ※必須'
       recipe_list: 
