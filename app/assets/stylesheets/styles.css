@@ -398,6 +398,9 @@ button:not(:disabled),
 textarea {
   resize: vertical;
 }
+.field_with_errors {
+  display: contents;
+}
 
 fieldset {
   min-width: 0;
