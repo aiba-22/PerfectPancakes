@@ -57,22 +57,18 @@ section#about.page-section
             p.text-muted
               | This app will tell you the timing!
 
-section#fotter.page-section.bg-light
-  footer.footer.py-4
-    .container
-      .row.align-items-center
-        .col-lg-4.text-lg-start
-          | Copyright © Your Website 2021
-        .col-lg-4.my-3.my-lg-0
-          a.btn.btn-dark.btn-social.mx-2[href="#!"]
-            i.fab.fa-twitter
-          a.btn.btn-dark.btn-social.mx-2[href="#!"]
-            i.fab.fa-facebook-f
-          a.btn.btn-dark.btn-social.mx-2[href="#!"]
-            i.fab.fa-linkedin-in
-        .col-lg-4.text-lg-end
-          a.link-dark.text-decoration-none.me-3[href="#!"]
-            | Privacy Policy
-          a.link-dark.text-decoration-none[href="#!"]
-            | Terms of Use
+.page-section.bg-light
+  .container.pt-5
+    .row.align-items-center
+      .col-lg-12.text-center
+        | Copyright © Your Website 2021
+    .row.pt-2
+      .col-lg-2.offset-2.text-center
+        = link_to '利用規約', company_info_terms_path, class: 'text-body'
+      .col-lg-2.text-center
+        = link_to 'プライバシーポリシー', company_info_privacy_policy_path, class: 'text-body'
+      .col-lg-2.text-center
+        |問い合わせフォーム
+      .col-lg-2.text-center
+        i.fab.fa-twitter
 
