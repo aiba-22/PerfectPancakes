@@ -1,6 +1,5 @@
 class UserMailer < ApplicationMailer
   def activation_needed_email(user)
-    binding.pry
     @user = user
     @url  = "http://0.0.0.0:3000/users/#{user.activation_token}/activate"
     mail(:to => user.email,

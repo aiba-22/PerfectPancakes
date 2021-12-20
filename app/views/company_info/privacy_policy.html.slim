@@ -70,7 +70,11 @@ body
                 h4 お問い合わせ
         .row.pt-3
             .col-10.offset-1
-                p 本ポリシーに関するお問い合わせは，お問い合わせフォームまでお願いいたします。
+                p
+                    |本ポリシーに関するお問い合わせは，
+                    span
+                        =link_to 'お問い合わせフォーム',  new_contact_path, class: 'text-black'
+                    span までお願いします。
 
 
 

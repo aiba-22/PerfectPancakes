@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#top'
+
   get 'company_info/privacy_policy'
   get 'company_info/terms'
   get 'company_info/mail_form'
-  root to: 'static_pages#top'
+
+  resources :contacts, only: [:new, :create]
+  post 'contacts/back', to: 'contacts#back', as: 'back'
 
   resources :users, only: [:create, :new, :edit, :show, :destroy, :update]
   get 'login' => 'user_sessions#new', :as => :login
@@ -14,9 +18,6 @@ Rails.application.routes.draw do
 
   #mailer用のルーティング
   Rails.application.routes.draw do
-  get 'company_info/privacy_policy'
-  get 'company_info/terms'
-  get 'company_info/mail_form'
     if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/letter_opener"
     end
@@ -35,5 +36,6 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :recipe_lists, only: %i[create update destroy], shallow: true
   end
+
 end
 
