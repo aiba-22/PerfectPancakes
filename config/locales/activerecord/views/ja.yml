@@ -9,6 +9,9 @@ ja:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
 
+  contacts:
+    create:
+      success: 'お問い合わせ頂きありがとうございます。'
   users:
     new:
       title: 'ユーザー登録'
