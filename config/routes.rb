@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'company_info/privacy_policy'
+  get 'company_info/terms'
+  get 'company_info/mail_form'
   root to: 'static_pages#top'
 
   resources :users, only: [:create, :new, :edit, :show, :destroy, :update]
@@ -11,6 +14,9 @@ Rails.application.routes.draw do
 
   #mailer用のルーティング
   Rails.application.routes.draw do
+  get 'company_info/privacy_policy'
+  get 'company_info/terms'
+  get 'company_info/mail_form'
     if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/letter_opener"
     end
