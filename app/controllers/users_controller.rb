@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit update ]
   skip_before_action :require_login, only: [:new, :create]
 
   # GET /users/1 or /users/1.json
@@ -36,13 +36,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def remove
+    @user = current_user
+  end
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
+    @user = current_user
+    #削除承認のチェックボックスにチェックを入れた時、データ削除を進行する
+    if params[:user][:withdrawal_approval] == "1"
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to root_url, flash: { success: t('.success') } }
+        format.json { head :no_content }
+      end
+    else
+      render :remove
     end
+
   end
 
   private

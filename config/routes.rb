@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post 'contacts/back', to: 'contacts#back', as: 'back'
 
   resources :users, only: [:create, :new, :edit, :show, :destroy, :update]
+  get 'remove' => 'users#remove', :as => :remove
+
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"
   delete 'logout' => 'user_sessions#destroy', :as => :logout

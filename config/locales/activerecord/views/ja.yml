@@ -26,6 +26,8 @@ ja:
     update:
       success: '更新できました'
       fail: '更新できませんでした'
+    destroy:
+      success: '退会手続きが完了しました。'
   user_sessions:
     new:
       title: 'ログイン'
