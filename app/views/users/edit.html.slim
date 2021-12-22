@@ -26,4 +26,9 @@ body.bg-secondary
         .form-group.text-center.pt-5
             .col-4.offset-4
                 = f.submit '更新する', class: 'btn btn-primary text-black'
-
+        .row
+            .col-4.offset-4.text-center.mt-5
+                p.text-white
+                    |退会する方は
+                    span
+                        = link_to 'こちら', remove_path

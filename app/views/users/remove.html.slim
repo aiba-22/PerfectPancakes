@@ -1,0 +1,26 @@
+- content_for(:title,'退会')
+body.bg-secondary
+    .container
+        .row
+            .text-center
+                h2.m-5.text-white
+                    | 退会
+        .row
+            .col-8.offset-2.text-white
+                p 以下の注意事項をご確認頂き同意した上で、同意するにチェックを頂き、『退会する』を選択してください。
+        .row
+            .col-8.offset-2.text-danger
+                p アカウント削除を行うと、ユーザーに紐づく全データは削除されます。
+                p また、データの復元、データの移行はできません
+
+
+    = form_with model: @user, method: :delete, local: true do |f|
+        .form-group.text-ehite.text-center
+            .col-10.offset-1.text-center.text-white
+                = f.label :同意する
+            .col-10.offset-1
+                = f.check_box :withdrawal_approval
+
+        .row
+            .col-4.offset-4.text-center
+                = f.submit "退会する", class: 'btn btn-danger text-black'
