@@ -24,7 +24,7 @@ window.onload = function() {
             exact: "environment"
             }
         }
-      };
+      }
 
     //DOMに要素追加
       //カメラ映像を出すvideoタグ
@@ -45,9 +45,12 @@ window.onload = function() {
         };
 
     //スタートボタンを待ちのボタンに変更を行う
-
       button.className = "spinner-border";
       button.innerHTML = "";
+
+    //使い方を非表示にする
+      instructions = document.getElementById("instructions")
+      instructions.innerHTML = ""
 
     //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
       const URL = "https://teachablemachine.withgoogle.com/models/vtT6LMR6V/";
