@@ -32,12 +32,12 @@
       .col-10.offset-1
         = f.text_field :password_confirmation, type: 'password', class: 'form-control'
     .row
-      .col-12
+      .col-12.text-white
         = f.check_box :accepted, as: :bollean, checked: false, class: "mr-1"
-        = link_to '利用規約', company_info_terms_path, class: 'text-body'
+        = link_to '利用規約', company_info_terms_path
         span と
-        = link_to 'プライバシーポリシー', company_info_privacy_policy_path, class: 'text-body'
-      .col-12
+        = link_to 'プライバシーポリシー', company_info_privacy_policy_path
+      .col-12.text-white
         span に同意する
     .row.py-5
       .col-4.offset-4
