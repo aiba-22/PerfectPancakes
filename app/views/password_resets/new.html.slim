@@ -2,15 +2,15 @@ body.bg-secondary
     .container.mt-5
         .row
             .text-center
-                h2.m-5.text-white
+                h2.m-5
                     | パスワード再設定
         = form_with url: password_resets_path, method: :post do |f|
             .row
-                .text-white.text-center
+                .text-center
                     = f.label :email, User.human_attribute_name(:email)
             .row
                 .col-8.offset-2.text-center
                     = f.text_field :email, class: 'form-control'
             .row.pt-5
                 .col-4.offset-4.text-center
-                    = f.submit "送信", class: 'btn btn-primary text-black'
+                    = f.submit "送信", class: 'btn btn-primary'

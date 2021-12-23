@@ -4,26 +4,29 @@
     position: relative;
     align-items: center;
     height: 100%;
-    background-color: #284E78 !important;
   }
 
   .webcam-img {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color:#ECD662;/*背景色*/
     border-radius: 10px;/*角の丸み*/
     }
   .transparent-img {
     opacity:0;
     width: 0px;
   }
-
+  .instructions{
+    text-align: center;
+    position: absolute;
+    top: 2%;
+    margin: auto;
+  }
 
   .start {
     text-align: center;
     position: absolute;
-    top: 20%;
+    top: 75%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -36,7 +39,7 @@
   .label {
     text-align: center;
     position: absolute;
-    top: 10%;
+    top: 75%;
     left: 0;
     right: 0;
     bottom: 0;

@@ -2,16 +2,21 @@ header.masthead
   .container
     .masthead-subheading.pt-5
       | PerfectPancakes
-    .masthead-subheading
-      .btn.btn-primary.m-2
-        = link_to 'ログイン', login_path
-      .btn.btn-primary.m-2
-        = link_to '新規登録', new_user_path
-    .btn.btn-secondary.m-2
-      = link_to 'ログインしないで使う', webcams_index_path, data: {"turbolinks" => false}
-    .masthead-subheading
-      a.btn.btn-info.btn-xl.text-uppercase.mt-5[href="#about"]
-        |▽ 使い方
+    .row
+      .col-12.col-lg-4.pt-4
+        = link_to new_user_path do
+          .btn.btn-primary.w-75 新規登録
+      .col-12.col-lg-4.pt-4
+        = link_to login_path do
+          .btn.btn-primary.w-75 ログイン
+      .col-12.col-lg-4.pt-4
+        = link_to webcams_index_path, data: {"turbolinks" => false} do
+          .btn.btn-secondary.w-75 ログインしないで使う
+          p ※ログインしない場合は調整機能が使えません
+
+      .col-12.pt-5
+        a.btn.btn-info.w-25[href="#about"]
+          |使い方
 
 
 section#about.page-section

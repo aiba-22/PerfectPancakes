@@ -8,12 +8,19 @@ input type = "hidden" id = "favorite_baking" value = @favorite_baking
   .label
     #label-container
     canvas#canvas.transparent-img
+  .instructions#instructions
+    .container
+      .low
+        .col-10.offset-1.text-left.text-danger
+          p 注意：必ず火元に注意し、カメラをフライパンに近づけすぎないでください。フライパンや周りの物が写っても問題なく反応します。また、室内の状況等によりうまく動作しない場合もあります、焼きすぎにはご注意ください。
+        .col-10.offset-1.text-left
+          h5 ①スタートを押すとカメラ承認を求められるので許可をしてください。
+        .col-10.offset-1.text-left.pt-1
+          h5 ②フライパンに流した生地が画面に映り込むようにしてください。
+        .col-10.offset-1.text-left.pt-1
+          h5 ③パンケーキの状態を教えてくれます。『今だ』が出たらひっくり返してください。
+          p ※アカウント登録をすると反応を調整することができます。
   .start
-    .div[id="init_btn"]
+    .btn.btn-success.btn-lg[id="init_btn"]
       |スタート
-      .h5.pt-5
-        |フライパンに生地を
-      .h5
-        |流し込んだら
-      .h5
-        |スタートを押してください
+
