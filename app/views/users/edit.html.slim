@@ -3,7 +3,7 @@ body.bg-secondary
     .container
         .row
             .text-center
-                h2.m-5.text-white
+                h2.m-5
                     | ユーザー編集
     .container
     = form_with model:@user, url:user_path, local:true do |f|
@@ -13,22 +13,22 @@ body.bg-secondary
                 ul.list-unstyled.text-center.text-danger
                     - @user.errors.full_messages.each do |message|
                         li = message
-        .form-group.text-white.text-center
+        .form-group.text-center
             .col
                 = f.label :name
             .col-10.offset-1
                 = f.text_field :name ,{class:"form-control"}
-        .form-group.text-white.text-center
+        .form-group.text-center
             .col
                 = f.label :email
             .col-10.offset-1
                 =f.text_field :email ,{class:"form-control"}
         .form-group.text-center.pt-5
             .col-4.offset-4
-                = f.submit '更新する', class: 'btn btn-primary text-black'
+                = f.submit '更新する', class: 'btn btn-primary'
         .row
             .col-4.offset-4.text-center.mt-5
-                p.text-white
+                p
                     |退会する方は
                     span
-                        = link_to 'こちら', remove_path
+                        = link_to 'こちら', remove_path, class: 'text-dark'

@@ -1,19 +1,19 @@
 = form_with url: login_path, method: :post, local: true  do |f|
   .container
     .row
-      .text-white.text-center
+      .text-center
         = f.label :email, User.human_attribute_name(:email)
     .row.pb-3
       .col-10.offset-1
           = f.text_field :email, class: 'form-control'
     .row
-      .text-white.text-center
+      .text-center
         = f.label :password, User.human_attribute_name(:password)
       .col-10.offset-1
         = f.text_field :password, type: 'password', class: 'form-control'
     .row.pt-5
       .col-4.offset-4
-        = f.submit "ログイン", class: 'btn btn-primary text-black'
+        = f.submit "ログイン", class: 'btn btn-primary'
     .row.pt-5
       .col
-      = link_to  "パスワードを忘れた方はこちら", new_password_reset_path
+      = link_to  "パスワードを忘れた方はこちら", new_password_reset_path, class: 'text-dark'

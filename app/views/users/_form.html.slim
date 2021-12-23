@@ -8,38 +8,33 @@
               li = message
   .container
     .row
-      .text-white
-        = f.label :name
+      = f.label :name
     .row.pb-3
       .col-10.offset-1
         = f.text_field :name, class: 'form-control'
     .row
-      .text-white
-        = f.label :email
+      = f.label :email
     .row.pb-3
       .col-10.offset-1
         = f.text_field :email, class: 'form-control'
     .row
-      .text-white
-        = f.label :password
+      = f.label :password
     .row.pb-3
       .col-10.offset-1
         = f.text_field :password, type: 'password', class: 'form-control'
     .row
-      .text-white
-        = f.label :password_confirmation
+      = f.label :password_confirmation
     .row.pb-3
       .col-10.offset-1
         = f.text_field :password_confirmation, type: 'password', class: 'form-control'
     .row
-      .col-12.text-white
+      .col-12
         = f.check_box :accepted, as: :bollean, checked: false, class: "mr-1"
-        = link_to '利用規約', company_info_terms_path
+        = link_to '利用規約', company_info_terms_path, class: 'text-dark'
         span と
-        = link_to 'プライバシーポリシー', company_info_privacy_policy_path
-      .col-12.text-white
+        = link_to 'プライバシーポリシー', company_info_privacy_policy_path, class: 'text-dark'
+      .col-12
         span に同意する
     .row.py-5
       .col-4.offset-4
-        = f.submit "作成", class: 'btn btn-primary text-black'
-
+        = f.submit "作成", class: 'btn btn-primary'

@@ -3,10 +3,10 @@ body.bg-secondary
     .container
         .row
             .text-center
-                h2.m-5.text-white
+                h2.m-5.
                     | 退会
         .row
-            .col-8.offset-2.text-white
+            .col-8.offset-2
                 p 以下の注意事項をご確認頂き同意した上で、同意するにチェックを頂き、『退会する』を選択してください。
         .row
             .col-8.offset-2.text-danger
@@ -16,11 +16,11 @@ body.bg-secondary
 
     = form_with model: @user, method: :delete, local: true do |f|
         .form-group.text-ehite.text-center
-            .col-10.offset-1.text-center.text-white
+            .col-10.offset-1.text-center
                 = f.label :同意する
             .col-10.offset-1
                 = f.check_box :withdrawal_approval
 
         .row
             .col-4.offset-4.text-center
-                = f.submit "退会する", class: 'btn btn-danger text-black'
+                = f.submit "退会する", class: 'btn btn-danger'
