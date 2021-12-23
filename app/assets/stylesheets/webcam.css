@@ -4,14 +4,12 @@
     position: relative;
     align-items: center;
     height: 100%;
-    background-color: #284E78 !important;
   }
 
   .webcam-img {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color:#ECD662;/*背景色*/
     border-radius: 10px;/*角の丸み*/
     }
   .transparent-img {
