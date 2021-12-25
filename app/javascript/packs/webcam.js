@@ -53,7 +53,7 @@ window.onload = function() {
       instructions.innerHTML = ""
 
     //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
-      const URL = "https://teachablemachine.withgoogle.com/models/vtT6LMR6V/";
+      const URL = "https://teachablemachine.withgoogle.com/models/w_phl0QcW/";
 
     //teachablemachineのモデルURLを読み込む
       const modelURL = URL + "model.json";
@@ -61,7 +61,6 @@ window.onload = function() {
 
     //モデルのイメージを格納する
       model = await tmImage.load(modelURL, metadataURL);
-      console.log(model);
     //フロント側に表示する結果ラベルをDOMに要素追加する
       labelContainer = document.getElementById("label-container");
     //進捗インジケータを見えなくする
@@ -78,21 +77,29 @@ window.onload = function() {
       const prediction = await model.predict(canvas);
       //数値によってラベルの結果を変更する
       //#{@user}はuserモデルのfavoriteカラム（焼き加減）の数値が入るようになっている
-        if (( prediction[0].probability.toFixed(2) * favorite_baking) >= 0.02) {
-          labelContainer.className = "mocchiri ";
-          labelContainer.innerHTML = "いまだ！！";
-        }
 
-        if (( prediction[0].probability.toFixed(2) * favorite_baking) < 0.02 && (prediction[0].probability.toFixed(2) * favorite_baking) >= 0.01) {
-          labelContainer.className = "purupuru2";
-          labelContainer.innerHTML = "もうすこし";
-        }
-
-
-        if (( prediction[0].probability.toFixed(2) * favorite_baking) < 0.01 && (prediction[0].probability.toFixed(2) * favorite_baking) >= 0) {
-            labelContainer.className = "yureru-s";
+      switch(true){
+        case prediction[0].probability.toFixed(2) * favorite_baking >= 0.4:
+          labelContainer.className = "yureru-s";
           labelContainer.innerHTML = "まだまだ";
-        }
+        break;
+        case prediction[1].probability.toFixed(2) * favorite_baking >= 0.4:
+          labelContainer.className = "yureru-s";
+          labelContainer.innerHTML = "今だ";
+        break;
+        case prediction[1].probability.toFixed(2) * favorite_baking >= 0.2:
+          labelContainer.className = "yureru-s";
+          labelContainer.innerHTML = "もう少し";
+        break;
+        case prediction[2].probability.toFixed(2) * favorite_baking > 0.2:
+          labelContainer.className = "yureru-s";
+          labelContainer.innerHTML = "Perfect";
+          break;
+        case prediction[3].probability.toFixed(2) * favorite_baking > 0.2:
+          labelContainer.className = "yureru-s";
+          labelContainer.innerHTML = "パンケーキを映してください";
+          break;
+      }
 
       window.requestAnimationFrame(loop);
       }
