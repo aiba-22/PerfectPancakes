@@ -1,6 +1,7 @@
 - content_for(:title, 'カメラを起動')
 - content_for :css do
     = stylesheet_link_tag 'webcam'
+= javascript_pack_tag "webcam"
 input type = "hidden" id = "favorite_baking" value = @favorite_baking
 
 .webcam-container.bg-secondary
