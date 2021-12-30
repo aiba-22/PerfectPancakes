@@ -1,0 +1,26 @@
+body.bg-secondary
+    .container.pt-5
+        .row
+        = form_with model: @contact do |f|
+            .col-10.offset-1
+                .form-group
+                    .badge.bg-success.mr-2.mb-2 任意
+                    = f.label :name, 'お名前'
+                    = f.text_field :name, autofocus: true, class: 'form-control'
+            .col-10.offset-1
+                .form-group
+                    .badge.bg-success.mr-2.mb-2 任意
+                    = f.label :email, 'メールアドレス'
+                    = f.text_field :email, autofocus: true, class: 'form-control'
+            .col-10.offset-1
+                .form-group
+                    .badge.badge-danger.mr-2.mb-2 必須
+                    = f.label :subject, '問い合わせ内容', class: 'mr-1'
+                    = f.select :subject,Contact.subjects.keys, placheholder: 0, class: 'form-control'
+            .col-10.offset-1
+                .form-group
+                    .badge.badge-danger.mr-2.mb-2 必須
+                    = f.label :message, 'メッセージ'
+                    = f.text_area :message, size: '5x5', class: 'form-control'
+            .col-10.offset-1
+                    = f.submit '送信', class: 'btn btn-primary', data: {confirm: "こちらの内容で送信を致します。宜しいでしょうか？"}
