@@ -11336,11 +11336,27 @@ html {
   height: 100%;
 }
 
+@media screen and (max-width: 414px) {
+  .html {
+    scroll-padding-top: 4.5rem;
+    height: 120%;
+  }
+}
+
 body {
   height: 100%;
   padding-bottom: 100px;
   position: relative;
   overflow-x: visible;
+}
+
+@media screen and (max-width: 414px) {
+  body {
+    height: 120%;
+    padding-bottom: 100px;
+    position: relative;
+    overflow-x: visible;
+  }
 }
 
 footer{
