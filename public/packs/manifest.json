@@ -1,0 +1,34 @@
+{
+  "application.js": "/packs/js/application-4f47acf617e9aa0eeb7b.js",
+  "application.js.map": "/packs/js/application-4f47acf617e9aa0eeb7b.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-4f47acf617e9aa0eeb7b.js"
+      ],
+      "js.map": [
+        "/packs/js/application-4f47acf617e9aa0eeb7b.js.map"
+      ]
+    },
+    "scripts": {
+      "js": [
+        "/packs/js/scripts-7212892467cc5759cb22.js"
+      ],
+      "js.map": [
+        "/packs/js/scripts-7212892467cc5759cb22.js.map"
+      ]
+    },
+    "webcam": {
+      "js": [
+        "/packs/js/webcam-d4cf33ed8bbb6749f52f.js"
+      ],
+      "js.map": [
+        "/packs/js/webcam-d4cf33ed8bbb6749f52f.js.map"
+      ]
+    }
+  },
+  "scripts.js": "/packs/js/scripts-7212892467cc5759cb22.js",
+  "scripts.js.map": "/packs/js/scripts-7212892467cc5759cb22.js.map",
+  "webcam.js": "/packs/js/webcam-d4cf33ed8bbb6749f52f.js",
+  "webcam.js.map": "/packs/js/webcam-d4cf33ed8bbb6749f52f.js.map"
+}
