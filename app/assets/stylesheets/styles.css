@@ -11333,18 +11333,18 @@ textarea.form-control-lg {
 }
 html {
   scroll-padding-top: 4.5rem;
-  height: 100%;
+  height: 130%;
 }
 
 @media screen and (max-width: 414px) {
   .html {
     scroll-padding-top: 4.5rem;
-    height: 120%;
+    height: 130%;
   }
 }
 
 body {
-  height: 100%;
+  height: 130%;
   padding-bottom: 100px;
   position: relative;
   overflow-x: visible;
@@ -11352,7 +11352,7 @@ body {
 
 @media screen and (max-width: 414px) {
   body {
-    height: 120%;
+    height: 130%;
     padding-bottom: 100px;
     position: relative;
     overflow-x: visible;
