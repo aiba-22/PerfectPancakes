@@ -11335,7 +11335,7 @@ html {
   scroll-padding-top: 4.5rem;
   height: 100%;
 }
-@media screen and (max-width: 1125px) {
+@media screen and (max-width: 1134px) {
   .html {
     scroll-padding-top: 4.5rem;
     height: 140%;
@@ -11348,7 +11348,7 @@ body {
   position: relative;
   overflow-x: visible;
 }
-@media screen and (max-width: 1125px) {
+@media screen and (max-width: 1134px) {
   body {
     height: 140%;
     padding-bottom: 100px;
