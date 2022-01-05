@@ -6,7 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
-
+# メール問い合わせの本番環境用にメールアドレスやパスワードの環境変数を設定しているファイル
+/.env
 # Ignore vendor/bundle config.
 vendor/bundle
 # Ignore all logfiles and tempfiles.
