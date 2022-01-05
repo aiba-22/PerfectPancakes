@@ -1,16 +1,15 @@
-footer.bg-dark
-    .container.p-2
-        .row
-            .col-4.text-center
-                = link_to my_page_menus_index_path, data: {"turbolinks" => false}
-                    i.bi.bi-house.fa-2x
-                    p マイページ
-            .col-4.text-center
-                = link_to webcams_index_path, data: {"turbolinks" => false}
-                    i.bi.bi-camera.fa-2x
-                    p カメラを起動
-            .col-4.text-center
-                = link_to recipes_path, data: {"turbolinks" => false}
-                    i.bi.bi-book.fa-2x
-                    p マイレシピ
+.container.p-2
+    .row
+        .col-4.text-center
+            = link_to my_page_menus_index_path, data: {"turbolinks" => false}
+                i.bi.bi-house
+                p マイページ
+        .col-4.text-center
+            = link_to webcams_index_path, data: {"turbolinks" => false}
+                i.bi.bi-camera
+                p カメラを起動
+        .col-4.text-center
+            = link_to recipes_path, data: {"turbolinks" => false}
+                i.bi.bi-book
+                p マイレシピ
 

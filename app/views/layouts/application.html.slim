@@ -25,7 +25,7 @@ html
         = render 'shared/login_header'
       = render 'shared/flash_message'
     = yield
-    footer.fixed-bottom
+    footer.fixed-bottom.bg-dark.d-flex.align-items-center
       - if current_user
         = render 'shared/login_footer'
       - else

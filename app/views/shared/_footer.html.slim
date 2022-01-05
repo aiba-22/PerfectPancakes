@@ -1,12 +1,10 @@
-footer.bg-dark
-    .container.p-2
-        .row
-            .col-4.text-center
+.container
+    .row
+        .col-4.text-center
+        .col-4.text-center
+            = link_to webcams_index_path, data: {"turbolinks" => false}
+                i.bi.bi-camera
+                br
+                p カメラを起動
+        .col-4.text-center
 
-            .col-4.text-center
-                = link_to webcams_index_path, data: {"turbolinks" => false}
-                    i.bi.bi-camera.fa-2x
-                    p カメラを起動
-            .col-4.text-center
-
- 

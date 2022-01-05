@@ -159,7 +159,7 @@ h6, .h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 abbr[title],
@@ -11344,7 +11344,7 @@ html {
 
 body {
   height: 100%;
-  padding-bottom: 100px;
+  padding-bottom: 70px;
   position: relative;
   overflow-x: visible;
 }
@@ -11356,8 +11356,8 @@ body {
     overflow-x: visible;
   }
 }
-footer{
-  height:100px
+footer {
+  height:70px
 }
 
 p {
