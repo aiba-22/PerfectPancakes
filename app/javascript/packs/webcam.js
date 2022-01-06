@@ -121,11 +121,11 @@ window.onload = function() {
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "もう少し";
       break;
-      case prediction[2].probability.toFixed(2) * favorite_baking > 0.5:
+      case prediction[2].probability.toFixed(2) * favorite_baking >= 0.5:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "PerfectPancakes!!";
         break;
-      case prediction[3].probability.toFixed(2) * favorite_baking > 0.5:
+      case prediction[3].probability.toFixed(2) * favorite_baking >= 0.5:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "パンケーキを映してください"
         break;
