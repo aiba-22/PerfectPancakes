@@ -5,7 +5,7 @@ window.onload = function() {
     $('#video_container').hide(); //iphonでvideoの再生ボタンが表示される事象があったので非表示にしておく
     $('#result_output_container').hide(); //ユーザーに判定結果や操作案内をするコンテナ
     $('#loader').hide(); //ローディングアニメーションは最初は非表示にしておく
-  })
+  });
 
     // labelContainer: フロント側に表示する結果を格納する
       let labelContainer, model;
