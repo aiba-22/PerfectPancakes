@@ -4,30 +4,36 @@
 = javascript_pack_tag "webcam"
 input type = "hidden" id = "favorite_baking" value = @favorite_baking
 
-.webcam-container.bg-secondary
-  video#video[autoplay playsinline]
-  .label
-    #label-container
-    canvas#canvas.transparent-img
-
+body.bg-secondary
   .container#instructions
     .low
       .col-12.text-left.text-danger.pt-2
-        p 注意：必ず火元に注意し、カメラをフライパンに近づけすぎないでください。フライパンや周りの物が写っても問題なく反応します。また、室内の状況等によりうまく動作しない場合もあります、焼きすぎにはご注意ください。
+        p 注意：必ず火元に注意し、カメラをフライパンに近づけすぎないでください。室内の状況によりうまく動作しない場合もあるので焼きすぎにはご注意ください。
       .col-10.offset-1.text-left
-        p ①スタートを押すとカメラ承認を求められるので許可をしてください。
+        p ①スタートを押してカメラ承認を許可してください。
       .col-10.offset-1.text-left.pt-1
-        p ②パンケーキを映して『今だ』が出たらひっくり返してください。
+        p ②『今だ』が出たらひっくり返してください。
       .col-10.offset-1.text-left.pt-1
-        p ③焼き時間を計測して、反対側の焼き時間を表示します。カウントダウのスタートボタンを押すとひっくり返すまでの時間が表示されます。
-        p ※アカウント登録をするとカメラの反応を調整することができます。
-  .second_step_box#second_step_box
-    #baking_time_result.pb-2
-    .btn.btn-success.btn-lg[id="second_baking_button"]
-      |カウントダウンをスタート
-  .start
-    .btn.btn-success.btn-lg[id="init_btn"]
-      |スタート
-  .restart
-    .btn.btn-success.btn-lg[id="restart"]
-      |新しく焼く
+        p ③反対側の焼き時間を予測表示します。カウントダウのスタートボタンを押すとひっくり返すまでの時間が表示されます。
+    .start
+      .btn.btn-success.btn-lg[id="init_btn"]
+        |スタート
+
+  .container.padding_100
+    .video_container#video_container
+      video#video[autoplay playsinline]
+    .result_output_container#result_output_container
+      .label
+        #label-container
+      .second_step_box
+        #baking_time_result.pb-2
+      canvas#canvas.transparent-img
+    .second_step_start
+      .btn.btn-success.btn-lg[id="second_baking_button"]
+        |スタート
+    .restart
+      .btn.btn-success.btn-lg[id="restart"]
+        |新しく焼く
+    .row
+      .col
+        .loader#loader
