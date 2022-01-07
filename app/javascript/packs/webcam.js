@@ -2,7 +2,9 @@
 //全て読み込まれてから要素を取り込む
 window.onload = function() {
   $(function() {
-    $('#video').hide(); //iphonでvideoの再生ボタンが表示される事象があったので非表示にしておく
+    $('#video_container').hide(); //iphonでvideoの再生ボタンが表示される事象があったので非表示にしておく
+    $('#result_output_container').hide(); //ユーザーに判定結果や操作案内をするコンテナ
+    $('#loader').hide(); //ローディングアニメーションは最初は非表示にしておく
   })
 
     // labelContainer: フロント側に表示する結果を格納する
@@ -16,8 +18,7 @@ window.onload = function() {
         init();
       }
       async function init() {
-        $("#video").show();//スタートボタンが押されたらvideoは表示させる
-
+        $("#video_container").show();//スタートボタンが押されたらvideoは表示させる
     //変数設定
     //カメラの設定
       let medias;
@@ -25,9 +26,9 @@ window.onload = function() {
         medias = {
         audio: false,
         video: {
-            facingMode: {
+          facingMode: {
             exact: "environment"
-            }
+          }
         }
       }
 
@@ -49,9 +50,9 @@ window.onload = function() {
         alert(err);
         };
 
-    //スタートボタンを待ちのボタンに変更を行う
-      button.className = "spinner-border";
+    //スタートボタンを待ちのボタンに変更を行
       button.innerHTML = "";
+      $('#loader').show(); //ローディングアニメーションを表示
 
     //使い方を非表示にする
       instructions = document.getElementById("instructions")
@@ -69,7 +70,8 @@ window.onload = function() {
     //フロント側に表示する結果ラベルをDOMに要素追加する
       labelContainer = document.getElementById("label-container");
     //進捗インジケータを見えなくする
-      button.className = "transparent-img";
+      $('#loader').hide(); //ローディングアニメーションを表示
+      $('#result_output_container').show(); //ユーザーに判定結果や操作案内をするコンテナを表示
     //画像を常に識別し結果を表示するためのループ処理
       window.requestAnimationFrame(loop);
     }
@@ -134,19 +136,22 @@ window.onload = function() {
 
   //反対側の焼きをスタートする為のボタンと新しいパンケーキを焼き直すボタンは必要な時以外は非表示にしておく
   $(function() {
-    $('#second_step_box').hide(); //もう片面の焼きの目安時間のカウントを開始するボタン
+    $('#baking_time_result').hide();//焼き時間と次の予想時間を表示するテキスト
+    $('#second_baking_button').hide();//反対側の焼きをスタートするボタン
     $('#restart').hide(); //新しいパンケーキを作るためにリスタートするボタン
   });
 
   //次の焼き時間目安を表示させカウントダウンタイマーのボタンを表示させる
   function first_baking_completed(){
-    $("#baking_time_result").text(`片面の焼き時間は ${Math.round((endTime - startTime)/1000)}秒でした。次の焼き加減目安は ${Math.round((endTime - startTime) / 1000 * 0.5)}秒です。パンケーキをひっくり返したらスタートを押してください。`);
-    $("#second_step_box").show();
+    $('#baking_time_result').text(`片面の焼き時間は ${Math.round((endTime - startTime)/1000)}秒でした。次の焼き加減目安は ${Math.round((endTime - startTime) / 1000 * 0.5)}秒です。パンケーキをひっくり返したらスタートを押してください。`);
+    $('#baking_time_result').show();
+    $('#second_baking_button').show();
   }
 
   //カウントダウンをスタートさせると1秒ごとにcountupを作動させる
   $('#second_baking_button').on('click', function() {
-    $('#second_step_box').hide();
+    $('#baking_time_result').hide();
+    $('#second_baking_button').hide();
     interval = setInterval(countup, 1000);
   });
   //タイマーを表示させて0になったら終了する
