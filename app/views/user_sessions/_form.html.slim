@@ -1,5 +1,5 @@
 = form_with url: login_path, method: :post, local: true  do |f|
-  .container
+  .container.padding_100
     .row
       .text-center
         = f.label :email, User.human_attribute_name(:email)
