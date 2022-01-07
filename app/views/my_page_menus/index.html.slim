@@ -2,17 +2,13 @@
 - content_for :css do
     = stylesheet_link_tag 'my_page_menus'
 body.bg-secondary
-    .container.h-100
+    .container.padding_100
         .row.my_page_container
-            .col-md-2
-                .btn-circle
-                    = link_to 'カメラを起動', webcams_index_path, data: {"turbolinks" => false}
-            .col-md-4
-                .btn-circle.small
+            .btn-circle
+                = link_to 'カメラを起動', webcams_index_path, data: {"turbolinks" => false}
+            .btn-circle.small
                     =link_to '焼き加減調整', favorite_bakings_edit_path
-            .col-md-2
-                .btn-circle
-                    = link_to 'マイレシピ', recipes_path
-            .col-md-4
-                .btn-circle.small
-                    = link_to '簡単なレシピ', my_page_menus_simple_recipe_path
+            .btn-circle
+                = link_to 'マイレシピ', recipes_path
+            .btn-circle.small
+                = link_to '簡単なレシピ', my_page_menus_simple_recipe_path
