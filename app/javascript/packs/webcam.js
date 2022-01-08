@@ -59,7 +59,7 @@ window.onload = function() {
       instructions.innerHTML = ""
 
     //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
-      const URL = "https://teachablemachine.withgoogle.com/models/IPWxO1WB8/";
+      const URL = "https://teachablemachine.withgoogle.com/models/wL8WLzC5R/";
 
     //teachablemachineのモデルURLを読み込む
       const modelURL = URL + "model.json";
@@ -110,7 +110,7 @@ window.onload = function() {
           baking_status = "start_baking";
         }
       break;
-      case prediction[1].probability.toFixed(2) >= 0.5:
+      case prediction[1].probability.toFixed(2) >= 0.8:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "今だ";
         if (baking_status =="start_baking"){
@@ -119,15 +119,15 @@ window.onload = function() {
           baking_status = "baking_completed"
         }
       break;
-      case prediction[1].probability.toFixed(2) * favorite_baking >= 0.3:
+      case prediction[1].probability.toFixed(2) * favorite_baking >= 0.5:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "もう少し";
       break;
-      case prediction[2].probability.toFixed(2) * favorite_baking >= 0.5:
+      case prediction[2].probability.toFixed(2) * favorite_baking >= 0.7:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "PerfectPancakes!!";
         break;
-      case prediction[3].probability.toFixed(2) * favorite_baking >= 0.5:
+      case prediction[3].probability.toFixed(2) * favorite_baking >= 0.8:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "パンケーキを映してください"
         break;
