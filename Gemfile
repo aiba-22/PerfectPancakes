@@ -37,7 +37,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave'
 # 画像処理ライブラリ
 gem 'mini_magick'
-
+# metaタグを効率よく設置する
+gem 'meta-tags'
 # CSSフレームワーク
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
