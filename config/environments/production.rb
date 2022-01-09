@@ -70,7 +70,7 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
 
   # 本番環境でのmailerの設定
-  config.action_mailer.default_url_options = {  :host => 'https://perfect-pancakes.herokuapp.com' }
+  config.action_mailer.default_url_options = {  :host => 'https://www.perfectpancakes.jp' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
