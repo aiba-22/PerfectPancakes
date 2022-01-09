@@ -61,9 +61,17 @@ section#about.page-section
           .timeline-body
             p.text-muted
               | This app will tell you the timing!
+.container.p-3
+  .row.text-center
+    h2 使い方動画
+  .row
+    .col-md-4
+    .col-md-4
+      = video_tag("/videos/How_to_use.mp4", controls: true, autobuffer: true, muted: :true, class: 'w-100')
+
 
 .page-section.bg-light
-  .container.pt-5
+  .container.pt-5.padding_100
     .row.align-items-center
       .col-lg-12.text-center
         | Copyright © Your Website 2021
