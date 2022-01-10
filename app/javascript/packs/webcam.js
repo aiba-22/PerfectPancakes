@@ -102,7 +102,7 @@ window.onload = function() {
     //数値によってラベルの結果を変更する
     //#{@user}はuserモデルのfavoriteカラム（焼き加減）の数値が入るようになっている
     switch(true){
-      case prediction[0].probability.toFixed(2) >= 0.5:
+      case prediction[0].probability.toFixed(2) * favorite_baking >= 0.5:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "まだまだ";
         if (baking_status == "not_baked"){
@@ -110,7 +110,7 @@ window.onload = function() {
           baking_status = "start_baking";
         }
       break;
-      case prediction[1].probability.toFixed(2) >= 0.8:
+      case prediction[1].probability.toFixed(2) * favorite_baking >= 0.8:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "今だ";
         if (baking_status =="start_baking"){
@@ -119,15 +119,15 @@ window.onload = function() {
           baking_status = "baking_completed"
         }
       break;
-      case prediction[1].probability.toFixed(2) * favorite_baking >= 0.5:
+      case prediction[1].probability.toFixed(2) * favorite_baking >= 0.4:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "もう少し";
       break;
-      case prediction[2].probability.toFixed(2) * favorite_baking >= 0.7:
+      case prediction[2].probability.toFixed(2) >= 0.7:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "PerfectPancakes!!";
         break;
-      case prediction[3].probability.toFixed(2) * favorite_baking >= 0.8:
+      case prediction[3].probability.toFixed(2) >= 0.8:
         labelContainer.className = "yureru-s";
         labelContainer.innerHTML = "パンケーキを映してください"
         break;

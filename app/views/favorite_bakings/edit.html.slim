@@ -15,7 +15,7 @@ body.bg-secondary
           |しっとり
     = form_with url: favorite_bakings_update_path,method: :get,local: true do |f|
       #customRange3.form-range
-        = f.range_field :w1, min: 0.7, max: 1.3, step: 0.1, value: @user.favorite_baking,class: "form-range", id: "slider1"
+        = f.range_field :w1, min: 0.9, max: 1.1, step: 0.05, value: @user.favorite_baking,class: "form-range", id: "slider1"
       .row
         .col
           = f.submit "保存", class: 'btn btn-primary m-1'
