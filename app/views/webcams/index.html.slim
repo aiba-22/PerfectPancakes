@@ -5,7 +5,7 @@
 input type = "hidden" id = "favorite_baking" value = @favorite_baking
 
 body.bg-secondary
-  .container#instructions.padding_100
+  .container#instructions
     .low
       .col-12.text-left.text-danger.pt-2
         p 注意：必ず火元に注意し、カメラをフライパンに近づけすぎないでください。室内の状況によりうまく動作しない場合もあるので焼きすぎにはご注意ください。
@@ -19,7 +19,7 @@ body.bg-secondary
       .btn.btn-success.btn-lg[id="init_btn"]
         |スタート
 
-  .container
+  .container.padding_100
     .video_container#video_container
       video#video[autoplay playsinline]
     .result_output_container#result_output_container
