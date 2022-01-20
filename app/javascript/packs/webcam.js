@@ -96,8 +96,21 @@ window.onload = function() {
   //カメラ画像からgoogleのteachablemachineのモデルより近い画像がどれか判定をしていく
   async function predict(){
   //canvasに静止画を格納する
-    var canvas =document.getElementById("canvas")
-    canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)
+    var canvas =document.getElementById("canvas");
+    //videoの横縦幅とアスペクト比を取得する（サイズによってcanvasへのトリミングを変えるため）
+    var videoWidth = video.videoWidth;//横幅を取得
+    var videoHeight = video.videoHeight;//縦幅を取得
+    var videoRate = videoWidth / videoHeight;//アスペクト比を取得
+    var videoPos = 0;
+
+    if(videoRate >= 1){ //画像が横長のとき
+      videoPos = (200 - (200 * videoRate)) / 2; //横方向の画像位置を計算
+      canvas.getContext("2d").drawImage(video, videoPos, 0, 200 * videoRate, 200); //Canvasに幅を基準に画像を描画
+    }else{ //画像が縦長のとき
+      videoPos = (200 - (200 / videoRate)) / 2; //縦方向の画像位置を計算
+      canvas.getContext("2d").drawImage(video, 0, videoPos, 200, 200 / videoRate); //Canvasに高さを基準に画像を描画
+    }
+
     const prediction = await model.predict(canvas);
     //数値によってラベルの結果を変更する
     //#{@user}はuserモデルのfavoriteカラム（焼き加減）の数値が入るようになっている
@@ -180,4 +193,3 @@ window.onload = function() {
   });
 
 }
-
