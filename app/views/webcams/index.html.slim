@@ -18,16 +18,17 @@ body.bg-secondary
     .start
       .btn.btn-success.btn-lg[id="init_btn"]
         |スタート
-
+  
   .container
     .video_container#video_container
-      video#video[autoplay playsinline]
+      video#video.transparent-img[autoplay playsinline]
+      canvas#canvas[width="150px" height="150px"]
     .result_output_container#result_output_container
       .label
         #label-container
       .second_step_box
         #baking_time_result.pb-2
-      canvas#canvas.transparent-img
+      
     .second_step_start
       .btn.btn-success.btn-lg[id="second_baking_button"]
         |スタート
