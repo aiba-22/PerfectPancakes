@@ -162,7 +162,6 @@ window.addEventListener = function() {
       labelContainer.innerHTML = "完成！！";
       $('#restart').removeClass('hide');
       $('#completed_img').removeClass('hide');
-      $('#enjoy').removeClass('hide');
       //タイマーを終了
       clearInterval(interval);
     }
