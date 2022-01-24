@@ -1,11 +1,6 @@
 //全体の流れはinit_btnのボタンをクリックした時にカメラの起動が始まり、次に画像解析が始まる
 //全て読み込まれてから要素を取り込む
-window.onload = function() {
-  $(function() {
-    $('#video_container').hide(); //iphonでvideoの再生ボタンが表示される事象があったので非表示にしておく
-    $('#result_output_container').hide(); //ユーザーに判定結果や操作案内をするコンテナ
-    $('#loader').hide(); //ローディングアニメーションは最初は非表示にしておく
-  });
+window.addEventListener = function() {
 
     // labelContainer: フロント側に表示する結果を格納する
       let labelContainer, model;
@@ -18,7 +13,7 @@ window.onload = function() {
         init();
       }
       async function init() {
-        $("#video_container").show();//スタートボタンが押されたらvideoは表示させる
+        $("#point_img").addClass('hide');//initが押されたらうまく焼くポイントの画像を非表示にする
     //変数設定
     //カメラの設定
       let medias;
@@ -50,13 +45,8 @@ window.onload = function() {
         alert(err);
         };
 
-    //スタートボタンを待ちのボタンに変更を行
-      button.innerHTML = "";
-      $('#loader').show(); //ローディングアニメーションを表示
-
-    //使い方を非表示にする
-      instructions = document.getElementById("instructions")
-      instructions.innerHTML = ""
+      button.className = "hide";
+      $('#loader').removeClass('hide'); //ローディングアニメーションを表示
 
     //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
       const URL = "https://teachablemachine.withgoogle.com/models/wL8WLzC5R/";
@@ -67,11 +57,13 @@ window.onload = function() {
 
     //モデルのイメージを格納する
       model = await tmImage.load(modelURL, metadataURL);
+
+    //進捗インジケータを見えなくする
+      $('#loader').addClass('hide'); //ローディングアニメーションを表示
+      $('#result_output_container').removeClass('hide'); //ユーザーに判定結果や操作案内をするコンテナを表示
+
     //フロント側に表示する結果ラベルをDOMに要素追加する
       labelContainer = document.getElementById("label-container");
-    //進捗インジケータを見えなくする
-      $('#loader').hide(); //ローディングアニメーションを表示
-      $('#result_output_container').show(); //ユーザーに判定結果や操作案内をするコンテナを表示
     //画像を常に識別し結果を表示するためのループ処理
       window.requestAnimationFrame(loop);
     }
@@ -147,24 +139,19 @@ window.onload = function() {
     }
   }
 
-  //反対側の焼きをスタートする為のボタンと新しいパンケーキを焼き直すボタンは必要な時以外は非表示にしておく
-  $(function() {
-    $('#baking_time_result').hide();//焼き時間と次の予想時間を表示するテキスト
-    $('#second_baking_button').hide();//反対側の焼きをスタートするボタン
-    $('#restart').hide(); //新しいパンケーキを作るためにリスタートするボタン
-  });
-
   //次の焼き時間目安を表示させカウントダウンタイマーのボタンを表示させる
   function first_baking_completed(){
     $('#baking_time_result').text(`片面の焼き時間は ${Math.round((endTime - startTime)/1000)}秒でした。次の焼き加減目安は ${Math.round((endTime - startTime) / 1000 * 0.5)}秒です。パンケーキをひっくり返したらスタートを押してください。`);
-    $('#baking_time_result').show();
-    $('#second_baking_button').show();
+    $('#baking_time_result').removeClass('hide');
+    $('#second_baking_button').removeClass('hide');
+    $('canvas').addClass('hide');
+    $('#first_baking_completed_img').removeClass('hide');
   }
 
   //カウントダウンをスタートさせると1秒ごとにcountupを作動させる
   $('#second_baking_button').on('click', function() {
-    $('#baking_time_result').hide();
-    $('#second_baking_button').hide();
+    $('#baking_time_result').addClass('hide');
+    $('#second_baking_button').addClass('hide');
     interval = setInterval(countup, 1000);
   });
   //タイマーを表示させて0になったら終了する
@@ -172,8 +159,10 @@ window.onload = function() {
     cnt++;
     labelContainer.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.5)-cnt}秒`;
     if ((Math.round((endTime - startTime) / 1000 * 0.5)-cnt) <=0){
-      labelContainer.innerHTML = "今だ";
-      $('#restart').show();
+      labelContainer.innerHTML = "完成！！";
+      $('#restart').removeClass('hide');
+      $('#completed_img').removeClass('hide');
+      $('#enjoy').removeClass('hide');
       //タイマーを終了
       clearInterval(interval);
     }
@@ -181,7 +170,7 @@ window.onload = function() {
 
   //ボタンの表示と変数のステータスを最初のスタートを押した状態と同じにする
   $('#restart').on('click', function() {
-    $('#restart').hide();
+    $('#restart').addClass('hide');
     //開始瞬間を一回のみにするためのmesurementをfalseにしておく
     baking_status = "not_baked";
     //開始時間と終了時間をリセット
@@ -189,6 +178,10 @@ window.onload = function() {
     startTime = 0;
     //カウントダウン用の変数をリセット
     cnt = 0;
+    $('#canvas').removeClass('hide');
+    $('#first_baking_completed_img').addClass('hide');
+    $('#completed_img').addClass('hide');
+    $('#enyoy').addClass('hide');
   window.requestAnimationFrame(loop);
   });
 
