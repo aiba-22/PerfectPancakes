@@ -1,6 +1,106 @@
+/* モーダルウィンドウ */
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: .6s;
+}
+.popup.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 30px 0px 30px 0px;
+  background-color: #fff;
+  z-index: 2;
+}
 
-  #instructions{
-    position:absolute;
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.close-btn i {
+  font-size: 20px;
+  color: #333;
+}
+.black-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.gaming {
+  /* 横長で虹色を作る */
+  background: linear-gradient(to right, Magenta, yellow, Cyan, Magenta) 0% center/200%;
+  animation: gaming 2s linear infinite;
+}
+@keyframes gaming {
+  /* backgroundを移動させる */
+  100% { background-position-x: 200%; }
+}
+  .complete{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  #completed_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+  }
+  #point_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+  }
+  #first_baking_completed_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
   }
 
   canvas {
@@ -63,7 +163,7 @@
     padding-top: 100%;
   }
 
-  .transparent-img {
+  .hide {
     opacity:0;
     position: absolute;
     width: 100%;
@@ -89,19 +189,7 @@
     line-height: 3rem;
     font-family: "DotGothic16";
   }
-  .second_step_start {
-    text-align: center;
-    position: relative;
-    top: 80%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    font-size: 3rem;
-    font-weight: 3rem;
-    line-height: 3rem;
-    font-family: "DotGothic16";
-  }
+
   .label {
     text-align: center;
     margin: auto;
@@ -225,22 +313,7 @@
   font-family: "DotGothic16";
 }
 
-
-.restart{
-  text-align: center;
-  position: relative;
-  top: 80%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  font-size: 3rem;
-  font-weight: 3rem;
-  line-height: 3rem;
-  font-family: "DotGothic16";
-}
-
-.result_output_container {
+#result_output_container {
   padding: 1em 1em;
   background-color:#ffffe0;/*背景色*/
   border: dotted 6px #C0C0C0;/*線*/
