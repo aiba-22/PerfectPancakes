@@ -43,3 +43,8 @@ body.bg-secondary
     .row
       .col
         .loader.hide#loader
+    .row.pt-5
+      .col.text-center
+        = link_to "https://twitter.com/share?url=#{request.url}&hashtags=パンケーキ,ホットケーキ", class: "no-color-change"
+          |Twitterで応援する
+          i.fab.fa-twitter
