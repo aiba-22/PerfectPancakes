@@ -83,5 +83,5 @@ section#about.page-section
       .col-lg-3.text-center
         = link_to 'お問い合わせフォーム',  new_contact_path, class: 'text-body'
       .col-lg-3.text-center
-        i.fab.fa-twitter
-
+        = link_to "https://twitter.com/share?url=#{request.url}&hashtags=パンケーキ,ホットケーキ", class: "no-color-change"
+          i.fab.fa-twitter

@@ -239,9 +239,13 @@ sup {
   top: -0.5em;
 }
 
+
 a {
   color: #ffffff;
   text-decoration: underline;
+}
+a.no-color-change {
+  color: #2e2e2e;
 }
 a:hover {
   color: #cca000;
