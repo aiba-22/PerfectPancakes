@@ -49,7 +49,7 @@ window.addEventListener = function() {
       $('#loader').removeClass('hide'); //ローディングアニメーションを表示
 
     //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
-      const URL = "https://teachablemachine.withgoogle.com/models/wL8WLzC5R/";
+      const URL = ""https://teachablemachine.withgoogle.com/models/wL8WLzC5R/;
 
     //teachablemachineのモデルURLを読み込む
       const modelURL = URL + "model.json";
