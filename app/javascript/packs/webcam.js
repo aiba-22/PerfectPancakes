@@ -164,8 +164,8 @@ window.addEventListener = function() {
   //タイマーを表示させて0になったら終了する
   function countup(){
     cnt++;
-    labelContainer.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.5)-cnt}秒`;
-    if ((Math.round((endTime - startTime) / 1000 * 0.5)-cnt) <=0){
+    labelContainer.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.666)-cnt}秒`;
+    if ((Math.round((endTime - startTime) / 1000 * 0.666)-cnt) <=0){
       labelContainer.innerHTML = "完成！！";
       $('#restart').removeClass('hide');
       $('#completed_img').removeClass('hide');
