@@ -83,7 +83,7 @@ window.addEventListener = function() {
 
   async function loop() {
     elapsedTime = performance.now();
-    if ((Math.round(elapsedTime - startTime) / 1000) < 30){
+    if ((Math.round(elapsedTime - startTime) / 1000) < 230){
       await predict();
       if (baking_status == "baking_completed"){
         window.cancelAnimationFrame(loop);
