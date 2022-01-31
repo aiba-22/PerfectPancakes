@@ -74,20 +74,32 @@ window.addEventListener = function() {
       window.requestAnimationFrame(loop);
     }
 
-
   let baking_status = "not_baked"; //片面の焼きが完了したら反対側の焼きに移行するので、焼き加減の状態を追えるようにを変数を用意する
   let endTime = 0; // 終了時間
   let startTime = 0; // 開始時間
+  let elapsedTime; //経過時間
   let cnt = 0;
   let interval;
 
   async function loop() {
-    await predict();
-    if (baking_status == "baking_completed"){
-      window.cancelAnimationFrame(loop);
-      first_baking_completed();
+    elapsedTime = performance.now();
+    if ((Math.round(elapsedTime - startTime) / 1000) < 30){
+      await predict();
+      if (baking_status == "baking_completed"){
+        window.cancelAnimationFrame(loop);
+        first_baking_completed();
+      }else{
+        window.requestAnimationFrame(loop);
+      }
     }else{
-      window.requestAnimationFrame(loop);
+      window.cancelAnimationFrame(loop);
+      timeup();
+    }
+  }
+
+  async function timeup(){
+    if (await swal('長時間経過したため解析を中断しました。焼きすぎの可能性があるのでパンケーキを確認して下さい。')) {
+      location.reload();
     }
   }
 
@@ -181,7 +193,7 @@ window.addEventListener = function() {
     baking_status = "not_baked";
     //開始時間と終了時間をリセット
     endTime = 0;
-    startTime = 0;
+    startTime = performance.now();
     //カウントダウン用の変数をリセット
     cnt = 0;
     $('#canvas').removeClass('hide');

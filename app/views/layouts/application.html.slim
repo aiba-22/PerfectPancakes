@@ -11,6 +11,8 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = yield :css
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    / アラートUIを変更するプラグイン
+    script [src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"]
 
     / Favicon
     link[rel="icon" type="image/x-icon" href="assets/favicon.ico"]
