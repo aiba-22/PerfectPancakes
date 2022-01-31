@@ -15,15 +15,19 @@ body.bg-secondary
       .col
         .video_container#video_container
           video#video.hide[autoplay playsinline]
-          canvas#canvas[width="120px" height="120px"]
+          canvas#canvas[width="200px" height="200px"]
           = image_tag 'point_img.png', id: 'point_img'
           = image_tag 'first_baking_completed_img.png', class: 'hide', id: 'first_baking_completed_img'
           = image_tag 'completed_img.png', class:"hide gaming",id: 'completed_img'
     .row
-      .col.text-center
+      .col-12.text-center
         /最初のスタートボタン
-        .btn.btn-success.m-4.btn-lg[id="init_btn"]
-          |スタート
+        .btn.btn-success.btn-lg[id="start_btn"]
+          |パンケーキの厚さ（普通）
+    .row
+      .col-12.text-center.pt-2
+        .btn.btn-success.btn-lg[id="thick_size_start_btn"]
+          |パンケーキの厚さ（厚め）
     .row
       .col
         #result_output_container.hide

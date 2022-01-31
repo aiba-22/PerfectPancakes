@@ -1,17 +1,25 @@
 //全体の流れはinit_btnのボタンをクリックした時にカメラの起動が始まり、次に画像解析が始まる
 //全て読み込まれてから要素を取り込む
 window.addEventListener = function() {
+  // labelContainer: フロント側に表示する結果を格納する
+  let labelContainer, model;
+  // 焼き加減の数値を格納
+  var favorite_baking = document.getElementById("favorite_baking");
+  var favorite_baking = favorite_baking.getAttribute('value');
+  var URL
 
-    // labelContainer: フロント側に表示する結果を格納する
-      let labelContainer, model;
-    // 焼き加減の数値を格納
-      var favorite_baking = document.getElementById("favorite_baking");
-      var favorite_baking = favorite_baking.getAttribute('value');
-    //ページを読み込む際にlabelContainerの要素を取得する必要がある為、initの前に記載
-      var button =document.getElementById("init_btn")
-      button.onclick = function(){
+      //パンケーキの厚さによって解析用画像モデルを変更するので、二つのスタートボタンを用意し分岐させる
+      $('#start_btn').on('click', function(){
+      //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
+        URL = "https://teachablemachine.withgoogle.com/models/gXEpLx0KS/";//パンケーキの厚みが通常の画像を格納したモデル
         init();
-      }
+      });
+      $('#thick_size_start_btn').on('click', function(){
+        //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
+        URL = "https://teachablemachine.withgoogle.com/models/G3RgTX00-/";//パンケーキが厚めの画像を格納したモデル
+        init();
+      });
+
       async function init() {
         $("#point_img").addClass('hide');//initが押されたらうまく焼くポイントの画像を非表示にする
     //変数設定
@@ -45,11 +53,9 @@ window.addEventListener = function() {
         alert(err);
         };
 
-      button.className = "hide";
+      $('#start_btn').addClass('hide');
+      $('#thick_size_start_btn').addClass('hide');
       $('#loader').removeClass('hide'); //ローディングアニメーションを表示
-
-    //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
-      const URL = "https://teachablemachine.withgoogle.com/models/wL8WLzC5R/";
 
     //teachablemachineのモデルURLを読み込む
       const modelURL = URL + "model.json";
@@ -68,20 +74,32 @@ window.addEventListener = function() {
       window.requestAnimationFrame(loop);
     }
 
-
   let baking_status = "not_baked"; //片面の焼きが完了したら反対側の焼きに移行するので、焼き加減の状態を追えるようにを変数を用意する
   let endTime = 0; // 終了時間
   let startTime = 0; // 開始時間
+  let elapsedTime; //経過時間
   let cnt = 0;
   let interval;
 
   async function loop() {
-    await predict();
-    if (baking_status == "baking_completed"){
-      window.cancelAnimationFrame(loop);
-      first_baking_completed();
+    elapsedTime = performance.now();
+    if ((Math.round(elapsedTime - startTime) / 1000) < 230){
+      await predict();
+      if (baking_status == "baking_completed"){
+        window.cancelAnimationFrame(loop);
+        first_baking_completed();
+      }else{
+        window.requestAnimationFrame(loop);
+      }
     }else{
-      window.requestAnimationFrame(loop);
+      window.cancelAnimationFrame(loop);
+      timeup();
+    }
+  }
+
+  async function timeup(){
+    if (await swal('長時間経過したため解析を中断しました。焼きすぎの可能性があるのでパンケーキを確認して下さい。')) {
+      location.reload();
     }
   }
 
@@ -90,17 +108,18 @@ window.addEventListener = function() {
   //canvasに静止画を格納する
     var canvas =document.getElementById("canvas");
     //videoの横縦幅とアスペクト比を取得する（サイズによってcanvasへのトリミングを変えるため）
-    var videoWidth = video.videoWidth;//横幅を取得
-    var videoHeight = video.videoHeight;//縦幅を取得
+    var videoWidth = video.videoWidth * 0.8;//横幅を取得、少しズームさせたいので0.8をかける
+    var videoHeight = video.videoHeight * 0.8;//縦幅を取得、少しズームさせたいので0.8をかける
     var videoRate = videoWidth / videoHeight;//アスペクト比を取得
-    var videoPos = 0;
+    var Starting_X; //横の描画スタート位置
+    var Starting_Y; // 縦の描画スタート位置
 
     if(videoRate >= 1){ //画像が横長のとき
-      videoPos = (200 - (200 * videoRate)) / 2; //横方向の画像位置を計算
-      canvas.getContext("2d").drawImage(video, videoPos, 0, 200 * videoRate, 200); //Canvasに幅を基準に画像を描画
+      Starting_X = (videoWidth - videoHeight) /2;
+      canvas.getContext("2d").drawImage(video, Starting_X, 0, Starting_X + videoHeight, videoHeight, 0, 0, 200, 200); //Canvasに幅を基準に画像を描画
     }else{ //画像が縦長のとき
-      videoPos = (200 - (200 / videoRate)) / 2; //縦方向の画像位置を計算
-      canvas.getContext("2d").drawImage(video, 0, videoPos, 200, 200 / videoRate); //Canvasに高さを基準に画像を描画
+      Starting_Y = (videoHeight - videoWidth) /2;
+      canvas.getContext("2d").drawImage(video, 0, Starting_Y, videoWidth, Starting_Y + videoWidth, 0, 0, 200, 200); //Canvasに高さを基準に画像を描画
     }
 
     const prediction = await model.predict(canvas);
@@ -157,8 +176,8 @@ window.addEventListener = function() {
   //タイマーを表示させて0になったら終了する
   function countup(){
     cnt++;
-    labelContainer.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.5)-cnt}秒`;
-    if ((Math.round((endTime - startTime) / 1000 * 0.5)-cnt) <=0){
+    labelContainer.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.666)-cnt}秒`;
+    if ((Math.round((endTime - startTime) / 1000 * 0.666)-cnt) <=0){
       labelContainer.innerHTML = "完成！！";
       $('#restart').removeClass('hide');
       $('#completed_img').removeClass('hide');
@@ -174,7 +193,7 @@ window.addEventListener = function() {
     baking_status = "not_baked";
     //開始時間と終了時間をリセット
     endTime = 0;
-    startTime = 0;
+    startTime = performance.now();
     //カウントダウン用の変数をリセット
     cnt = 0;
     $('#canvas').removeClass('hide');
