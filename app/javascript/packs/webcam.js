@@ -116,10 +116,10 @@ window.addEventListener = function() {
 
     if(videoRate >= 1){ //画像が横長のとき
       Starting_X = (videoWidth - videoHeight) /2;
-      canvas.getContext("2d").drawImage(video, Starting_X, 0, videoHeight, videoHeight, 0, 0, 200, 200); //Canvasに幅を基準に画像を描画
+      canvas.getContext("2d").drawImage(video, Starting_X, 0, Starting_X + videoHeight, videoHeight, 0, 0, 200, 200); //Canvasに幅を基準に画像を描画
     }else{ //画像が縦長のとき
       Starting_Y = (videoHeight - videoWidth) /2;
-      canvas.getContext("2d").drawImage(video, 0, Starting_Y, videoWidth, videoWidth, 0, 0, 200, 200); //Canvasに高さを基準に画像を描画
+      canvas.getContext("2d").drawImage(video, 0, Starting_Y, videoWidth, Starting_Y + videoWidth, 0, 0, 200, 200); //Canvasに高さを基準に画像を描画
     }
 
     const prediction = await model.predict(canvas);
