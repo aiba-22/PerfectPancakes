@@ -6,19 +6,20 @@ window.addEventListener = function() {
   // 焼き加減の数値を格納
   var favorite_baking = document.getElementById("favorite_baking");
   var favorite_baking = favorite_baking.getAttribute('value');
-  var URL
-
+  var URL;
+  var start_btn =document.getElementById('start_btn');
+  var thick_size_start_btn =document.getElementById('thick_size_start_btn');
       //パンケーキの厚さによって解析用画像モデルを変更するので、二つのスタートボタンを用意し分岐させる
-      $('#start_btn').on('click', function(){
+      start_btn.onclick = function(){
       //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
         URL = "https://teachablemachine.withgoogle.com/models/gXEpLx0KS/";//パンケーキの厚みが通常の画像を格納したモデル
         init();
-      });
-      $('#thick_size_start_btn').on('click', function(){
+      }
+      thick_size_start_btn.onclick = function(){
         //googleのteachablemachineを使用して画像解析をするのでモデル先のURLを格納
         URL = "https://teachablemachine.withgoogle.com/models/G3RgTX00-/";//パンケーキが厚めの画像を格納したモデル
         init();
-      });
+      }
 
       async function init() {
         $("#point_img").addClass('hide');//initが押されたらうまく焼くポイントの画像を非表示にする
