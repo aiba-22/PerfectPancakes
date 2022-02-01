@@ -10,6 +10,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('./scripts.js')
 require('./scroll.js')
+require('./fedein_down_animetion.js')
 require('jquery')
 //= require jquery3
 //= require popper
