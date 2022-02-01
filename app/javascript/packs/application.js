@@ -8,8 +8,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require('jquery')
 require('./scripts.js')
+require('./scroll.js')
+require('./fedein_down_animetion.js')
+require('jquery')
 //= require jquery3
 //= require popper
 //= require bootstrap
