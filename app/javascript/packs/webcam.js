@@ -190,21 +190,20 @@ window.addEventListener = function() {
       countdown();
     });
 
+      //ボタンの表示と変数のステータスを最初のスタートを押した状態と同じにする
+    $('#restart').on('click', function() {
+      $('#restart').addClass('hide');
+      //開始瞬間を一回のみにするためのmesurementをfalseにしておく
+      baking_status = "not_baked";
+      //開始時間と終了時間をリセット
+      endTime = 0;
+      startTime = performance.now();
+      //カウントダウン用の変数をリセット
+      $('#canvas').removeClass('hide');
+      $('#first_baking_completed_img').addClass('hide');
+      $('#completed_img').addClass('hide');
+      $('#enyoy').addClass('hide');
+    window.requestAnimationFrame(loop);
+    });
   }
-  //ボタンの表示と変数のステータスを最初のスタートを押した状態と同じにする
-  $('#restart').on('click', function() {
-    $('#restart').addClass('hide');
-    //開始瞬間を一回のみにするためのmesurementをfalseにしておく
-    baking_status = "not_baked";
-    //開始時間と終了時間をリセット
-    endTime = 0;
-    startTime = performance.now();
-    //カウントダウン用の変数をリセット
-    $('#canvas').removeClass('hide');
-    $('#first_baking_completed_img').addClass('hide');
-    $('#completed_img').addClass('hide');
-    $('#enyoy').addClass('hide');
-  window.requestAnimationFrame(loop);
-  });
-
 }
