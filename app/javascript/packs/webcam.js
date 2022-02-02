@@ -3,6 +3,8 @@
 window.addEventListener = function() {
   // labelContainer: フロント側に表示する結果を格納する
   let labelContainer, model;
+  //フロント側に表示する結果ラベルをDOMに要素追加する
+  labelContainer = document.getElementById("label-container");
   // 焼き加減の数値を格納
   var favorite_baking = document.getElementById("favorite_baking");
   var favorite_baking = favorite_baking.getAttribute('value');
@@ -69,8 +71,6 @@ window.addEventListener = function() {
       $('#loader').addClass('hide'); //ローディングアニメーションを表示
       $('#result_output_container').removeClass('hide'); //ユーザーに判定結果や操作案内をするコンテナを表示
 
-    //フロント側に表示する結果ラベルをDOMに要素追加する
-      labelContainer = document.getElementById("label-container");
     //画像を常に識別し結果を表示するためのループ処理
       window.requestAnimationFrame(loop);
     }
@@ -79,8 +79,6 @@ window.addEventListener = function() {
   let endTime = 0; // 終了時間
   let startTime = 0; // 開始時間
   let elapsedTime; //経過時間
-  let cnt = 0;
-  let interval;
 
   async function loop() {
     elapsedTime = performance.now();
@@ -161,32 +159,38 @@ window.addEventListener = function() {
 
   //次の焼き時間目安を表示させカウントダウンタイマーのボタンを表示させる
   function first_baking_completed(){
-    $('#baking_time_result').text(`片面の焼き時間は ${Math.round((endTime - startTime)/1000)}秒でした。次の焼き加減目安は ${Math.round((endTime - startTime) / 1000 * 0.5)}秒です。パンケーキをひっくり返したらスタートを押してください。`);
+    $('#baking_time_result').text(`片面の焼き時間は ${Math.round((endTime - startTime)/1000)}秒でした。次の焼き加減目安は ${Math.round((endTime - startTime) / 1000 * 0.666)}秒です。パンケーキをひっくり返したらスタートを押してください。`);
     $('#baking_time_result').removeClass('hide');
     $('#second_baking_button').removeClass('hide');
     $('canvas').addClass('hide');
     $('#first_baking_completed_img').removeClass('hide');
-  }
 
-  //カウントダウンをスタートさせると1秒ごとにcountupを作動させる
-  $('#second_baking_button').on('click', function() {
-    $('#baking_time_result').addClass('hide');
-    $('#second_baking_button').addClass('hide');
-    interval = setInterval(countup, 1000);
-  });
-  //タイマーを表示させて0になったら終了する
-  function countup(){
-    cnt++;
-    labelContainer.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.666)-cnt}秒`;
-    if ((Math.round((endTime - startTime) / 1000 * 0.666)-cnt) <=0){
-      labelContainer.innerHTML = "完成！！";
-      $('#restart').removeClass('hide');
-      $('#completed_img').removeClass('hide');
-      //タイマーを終了
-      clearInterval(interval);
-    }
-  }
+    $('#second_baking_button').off('click');
+      //ボタンをクリックすると作動
+    $('#second_baking_button').on('click', function() {
+      $('#baking_time_result').addClass('hide');//計測結果を非表示に
+      $('#second_baking_button').addClass('hide');//カウントダウンスタートのボタンを非表示に
 
+      let cnt = 0 ;//カウントダウンの数字を減らすための変数
+      //カウントダウンの関数を用意
+      let countdown = function() {
+        cnt++;// 1ずつカウント
+        let time = setTimeout(countdown, 1000);//1秒ずつ繰り返す
+        labelContainer.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.666)-cnt}秒`;
+        if ((Math.round((endTime - startTime) / 1000 * 0.666)-cnt) <=0) {
+          labelContainer.innerHTML = "完成!!";//完成を表示
+          $('#restart').removeClass('hide');//焼き直しのボタンを表示
+          $('#completed_img').removeClass('hide');//完成のイメージpngを表示
+          //タイマーを終了
+          clearTimeout(time);//カウントのループを止める
+          cnt = 0;//２回目以降に反映されないよう0に戻しておく
+        }
+      }
+      //カウントダウンをスタートさせる
+      countdown();
+    });
+
+  }
   //ボタンの表示と変数のステータスを最初のスタートを押した状態と同じにする
   $('#restart').on('click', function() {
     $('#restart').addClass('hide');
@@ -196,7 +200,6 @@ window.addEventListener = function() {
     endTime = 0;
     startTime = performance.now();
     //カウントダウン用の変数をリセット
-    cnt = 0;
     $('#canvas').removeClass('hide');
     $('#first_baking_completed_img').addClass('hide');
     $('#completed_img').addClass('hide');
