@@ -15,4 +15,3 @@ $(function(){
       return false;
     });
   });
-い
