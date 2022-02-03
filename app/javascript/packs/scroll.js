@@ -1,5 +1,7 @@
 $(function(){
-    $('a[href^="#"]').click(function(){
+    //#aboutをクリックした時だけ作動する
+    //#とするとページ内移動が全て適用されるがカルーセルの画像移動も適用されてしまう。
+    $('a[href^="#about"]').click(function(){
       //スクロールのスピード
       var speed = 500;
       //リンク元を取得

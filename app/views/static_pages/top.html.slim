@@ -22,7 +22,7 @@ header.masthead
 section#about.page-section
   .container
     .text-center
-      h2.section-heading.text-uppercase.animation
+      h2.section-heading.text-uppercase.animation.pt-3
         | 完璧なパンケーキの為に
       h3.section-subheading.text-muted.animation
         | To make the perfect pancake.
@@ -61,14 +61,33 @@ section#about.page-section
           .timeline-body
             p.text-muted.animation
               | This app will tell you the timing!
-.container.p-3
-  .row.text-center
-    h2 使い方動画
-  .row
-    .col-md-4
-    .col-md-4
-      = video_tag("/videos/How_to_use.mp4", controls: true, autobuffer: true, muted: :true, class: 'w-100')
 
+.container.p-3
+  .row
+    .col-md-4.offset-md-4
+      #sample.carousel.slide[data-interval="15000" data-wrap="false"]
+        ol.carousel-indicators
+          li.active[data-target="#sample" data-slide-to="0"]
+          li[data-target="#sample" data-slide-to="1"]
+          li[data-target="#sample" data-slide-to="2"]
+          li[data-target="#sample" data-slide-to="3"]
+        .carousel-inner.carousel-fade
+          .carousel-item.active
+              =image_tag 'how_to_use1', class: "d-block w-100"
+          .carousel-item
+              =image_tag 'how_to_use2', class: "d-block w-100"
+          .carousel-item
+              =image_tag 'how_to_use3', class: "d-block w-100"
+          .carousel-item
+              =image_tag 'how_to_use4', class: "d-block w-100"
+        a.carousel-control-prev[href="#sample" data-slide="prev"]
+          span.carousel-control-prev-icon
+          span.sr-only
+            | 前の画像へ
+        a.carousel-control-next[href="#sample" data-slide="next"]
+          span.carousel-control-next-icon
+          span.sr-only
+            | 次の画像へ
 
 .page-section.bg-light
   .container.pt-5.padding_100
