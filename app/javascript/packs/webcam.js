@@ -14,8 +14,8 @@ window.addEventListener = function() {
     let video = document.getElementById('video')//カメラ映像を表示
 
     //スタートボタンは二つ用意し、それぞれでモデルを取得するURL先を変える
-    let start_btn =document.getElementById('start_btn')//スタートボタン（通常）
-    let thick_size_start_btn =document.getElementById('thick_size_start_btn')//スタートボタン（厚め）
+    let start_btn = document.getElementById('start_btn')//スタートボタン（通常）
+    let thick_size_start_btn = document.getElementById('thick_size_start_btn')//スタートボタン（厚め）
 
     //通常ボタンのスタートを押した時
     start_btn.onclick = function(){
@@ -117,7 +117,7 @@ window.addEventListener = function() {
 
     //〜カメラの映像をgoogleのteachablemachineのモデルを使用して判定をしていく〜
     async function predict(){
-        let canvas =document.getElementById('canvas')//videの映像を静止画にして格納するための変数
+        let canvas = document.getElementById('canvas')//videの映像を静止画にして格納するための変数
 
         //videoの横縦幅とアスペクト比を取得する（サイズによってcanvasへのトリミングを変えるため）
         let videoWidth = video.videoWidth * 0.8//横幅を取得、少しズームさせたいので0.8をかける
@@ -194,7 +194,7 @@ window.addEventListener = function() {
                 let time = setTimeout(countdown, 1000)//1秒ずつ繰り返す
                 judgement_container.innerHTML = `2回目のひっくり返しまであと${Math.round((endTime - startTime) / 1000 * 0.666)-cnt}秒`
 
-                if ((Math.round((endTime - startTime) / 1000 * 0.666)-cnt) <=0) {
+                if ((Math.round((endTime - startTime) / 1000 * 0.666)-cnt) <= 0) {
                     judgement_container.innerHTML = '完成!!'//完成を表示
                     $('#restart').removeClass('hide')//新たに焼く用のボタンを表示
                     $('#first_baking_completed_img').addClass('hide')//タイマーイメージ画像の非表示
