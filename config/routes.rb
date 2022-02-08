@@ -5,39 +5,35 @@ Rails.application.routes.draw do
   get 'company_info/terms'
   get 'company_info/mail_form'
 
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: %i[new create]
   post 'contacts/back', to: 'contacts#back', as: 'back'
 
-  resources :users, only: [:create, :new, :edit, :show, :destroy, :update]
+  resources :users, only: %i[create new edit show destroy update]
   get 'remove' => 'users#remove', :as => :remove
 
   get 'login' => 'user_sessions#new', :as => :login
-  post 'login' => "user_sessions#create"
+  post 'login' => 'user_sessions#create'
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
-  #再パスワードの為のコントローラー
-  resources :password_resets, only: [:new, :edit, :create, :update]
+  # 再パスワードの為のコントローラー
+  resources :password_resets, only: %i[new edit create update]
 
-  #mailer用のルーティング
+  # mailer用のルーティング
   Rails.application.routes.draw do
-    if Rails.env.development?
-      mount LetterOpenerWeb::Engine, at: "/letter_opener"
-    end
+    mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   end
 
   get 'my_page_menus/index'
 
-  #マイページにある４つのリンクのルーティング
+  # マイページにある４つのリンクのルーティング
   get 'my_page_menus/simple_recipe'
   get 'webcams/index'
   get 'favorite_bakings/edit'
   get 'favorite_bakings/update'
 
   resources :recipes
-  #レシピリストはレシピでネストした形にする
+  # レシピリストはレシピでネストした形にする
   resources :recipes do
     resources :recipe_lists, only: %i[create update destroy], shallow: true
   end
-
 end
-

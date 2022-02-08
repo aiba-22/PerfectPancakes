@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
-#問い合わせメールの本番環境用にメールアドレスやパスワードを環境変数に設定する為のgem
+# 問い合わせメールの本番環境用にメールアドレスやパスワードを環境変数に設定する為のgem
 gem 'dotenv-rails'
 # 構文規則チェックgem
 gem 'rubocop'
@@ -15,7 +15,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-#パスワード管理
+# パスワード管理
 gem 'sorcery'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
@@ -48,14 +48,14 @@ gem 'slim-rails'
 gem 'kaminari'
 # html.erbをhtmle.slimに変換するためのgem
 gem 'html2slim'
-#日本語化
+# 日本語化
 gem 'rails-i18n', '~> 6.0'
-#デバッグ
+# デバッグ
 gem 'pry-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -63,14 +63,16 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  #mailerのブラウザ確認
+  # mailerのブラウザ確認
   gem 'letter_opener_web', '~> 1.0'
+  # rubyの構文チェック
+  gem 'rubocop', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

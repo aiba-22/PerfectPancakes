@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-    before_action :require_login
-    private
+  before_action :require_login
 
-    def not_authenticated
-      redirect_to login_path
-    end
+  private
 
+  def not_authenticated
+    redirect_to login_path
+  end
 end

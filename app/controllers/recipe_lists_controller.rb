@@ -5,10 +5,7 @@ class RecipeListsController < ApplicationController
 
   def create
     @recipe_list = RecipeList.new(recipe_lists_params)
-    if @recipe_list.save
-      redirect_to request.referer, flash: { success: t('.success') }
-    else
-    end
+    redirect_to request.referer, flash: { success: t('.success') } if @recipe_list.save
   end
 
   def destroy
@@ -19,11 +16,9 @@ class RecipeListsController < ApplicationController
 
   def update
     @recipe_list = RecipeList.find(params[:id])
-    if @recipe_list.update(recipe_list_params)
-      redirect_to request.referer, flash: { success: t('.success') }
-    else
-    end
+    redirect_to request.referer, flash: { success: t('.success') } if @recipe_list.update(recipe_list_params)
   end
+
   private
 
   def recipe_list_params
