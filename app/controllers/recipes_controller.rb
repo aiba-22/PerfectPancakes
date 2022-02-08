@@ -7,9 +7,9 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe =current_user.recipes.build(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
-      redirect_to(edit_recipe_path(@recipe.id),  flash: { success: t('.success') })
+      redirect_to(edit_recipe_path(@recipe.id), flash: { success: t('.success') })
     else
       render :new
     end
@@ -30,14 +30,13 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
-      redirect_to edit_recipe_path(@recipe.id), flash: { success: t('.success') }
-    end
+    redirect_to edit_recipe_path(@recipe.id), flash: { success: t('.success') } if @recipe.update(recipe_params)
   end
 
   def show
     @recipe_lists = @recipe.recipe_lists
   end
+
   private
 
   def set_recipe

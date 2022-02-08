@@ -1,31 +1,35 @@
-body.bg-secondary
-  .container.mt-5
+body.bg-secondary.padding_100
+  .container
     .row
-      .text-center
+      .col-12.text-center
         h2.m-5
           | パスワード再設定
 = form_for @user, :url => password_reset_path(@token), :html => {:method => :put} do |f|
-    .row.text-danger.text-center
+  .container
+    .row
+      .col-12.text-danger.text-center
         - if @user.errors.any?
           #error_explanation
             ul.list-unstyled
               - @user.errors.full_messages.each do |msg|
                 li = msg
     .row
-      .text-center
+      .col-12.text-center
         = f.label :email
     .row
-      .text-center
+      .col-12.text-center
         = @user.email
-    .row.text-center.pt-5
-      = f.label :password
     .row
-      .col-8.offset-2
+      .col-12.text-center.pt-2
+        = f.label :password
+    .row
+      .col-8.offset-2.text-center
         = f.password_field :password, class: 'form-control'
-    .row.text-center.pt-2
-      = f.label :password_confirmation
-    .row.text-center
-      .col-8.offset-2
+    .row
+      .col-12.text-center.pt-2
+        = f.label :password_confirmation
+    .row
+      .col-8.offset-2.text-center
         = f.password_field :password_confirmation, class: 'form-control'
     .row
       .col-4.offset-4.text-center.pt-2
