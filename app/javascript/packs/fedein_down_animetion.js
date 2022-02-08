@@ -1,11 +1,11 @@
-$('.animation').css('visibility','hidden');
+$('.animation').css('visibility','hidden')
 $(window).scroll(function(){
     var windowHeight = $(window).height(),
-        topWindow = $(window).scrollTop();
+        topWindow = $(window).scrollTop()
     $('.animation').each(function(){
-        var targetPosition = $(this).offset().top;
+        var targetPosition = $(this).offset().top
         if(topWindow > targetPosition - windowHeight + 60){
-            $(this).addClass("fadeInDown");
+            $(this).addClass('fadeInDown')
         }
-    });
-});
+    })
+})
