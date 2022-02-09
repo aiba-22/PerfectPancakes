@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update ]
-  skip_before_action :require_login, only: [:new, :create]
+  before_action :set_user, only: %i[show edit update]
+  skip_before_action :require_login, only: %i[new create]
 
   # GET /users/1 or /users/1.json
-  def show
-  end
+  def show; end
 
   # GET /users/new
   def new
@@ -12,8 +11,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users or /users.json
   def create
@@ -39,11 +37,12 @@ class UsersController < ApplicationController
   def remove
     @user = current_user
   end
+
   # DELETE /users/1 or /users/1.json
   def destroy
     @user = current_user
-    #削除承認のチェックボックスにチェックを入れた時、データ削除を進行する
-    if params[:user][:withdrawal_approval] == "1"
+    # 削除承認のチェックボックスにチェックを入れた時、データ削除を進行する
+    if params[:user][:withdrawal_approval] == '1'
       @user.destroy
       respond_to do |format|
         format.html { redirect_to root_url, flash: { success: t('.success') } }
@@ -52,20 +51,18 @@ class UsersController < ApplicationController
     else
       render :remove
     end
-
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-      if @user.id != current_user.id
-        redirect_to("/")
-      end
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :accepted)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+    redirect_to('/') if @user.id != current_user.id
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :accepted)
+  end
 end

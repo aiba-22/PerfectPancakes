@@ -5,7 +5,7 @@ $(window).scroll(function(){
     $('.animation').each(function(){
         var targetPosition = $(this).offset().top;
         if(topWindow > targetPosition - windowHeight){
-            $(this).addClass('fadeInDown');
+            $(this).addClass('fadeInDown')
         }
     })
 })
