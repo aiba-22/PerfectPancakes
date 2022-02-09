@@ -19,9 +19,8 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new edit create update]
 
   # mailer用のルーティング
-  Rails.application.routes.draw do
-    mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
-  end
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   get 'my_page_menus/index'
 
@@ -31,7 +30,6 @@ Rails.application.routes.draw do
   get 'favorite_bakings/edit'
   get 'favorite_bakings/update'
 
-  resources :recipes
   # レシピリストはレシピでネストした形にする
   resources :recipes do
     resources :recipe_lists, only: %i[create update destroy], shallow: true
