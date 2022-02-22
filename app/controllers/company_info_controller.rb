@@ -3,4 +3,6 @@ class CompanyInfoController < ApplicationController
   def privacy_policy; end
 
   def terms; end
+
+  def mail_form; end
 end

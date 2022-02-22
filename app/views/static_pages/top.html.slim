@@ -18,6 +18,7 @@ header.masthead
         a.btn.btn-info.w-25[href="#about"]
           |使い方
 
+
 section#about.page-section
   .container
     .text-center
@@ -95,9 +96,9 @@ section#about.page-section
         | Copyright © Your Website 2021
     .row.pt-2
       .col-lg-3.text-center
-        = link_to '利用規約', terms_path, class: 'text-body'
+        = link_to '利用規約', company_info_terms_path, class: 'text-body'
       .col-lg-3.text-center
-        = link_to 'プライバシーポリシー', privacy_policy_path, class: 'text-body'
+        = link_to 'プライバシーポリシー', company_info_privacy_policy_path, class: 'text-body'
       .col-lg-3.text-center
         = link_to 'お問い合わせフォーム',  new_contact_path, class: 'text-body'
       .col-lg-3.text-center
