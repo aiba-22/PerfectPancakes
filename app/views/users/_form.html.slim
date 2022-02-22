@@ -30,9 +30,9 @@
     .row
       .col-12
         = f.check_box :accepted, as: :bollean, checked: false, class: "mr-1"
-        = link_to '利用規約', company_info_terms_path, class: 'text-dark'
+        = link_to '利用規約', terms_path, class: 'text-dark'
         span と
-        = link_to 'プライバシーポリシー', company_info_privacy_policy_path, class: 'text-dark'
+        = link_to 'プライバシーポリシー', privacy_policy_path, class: 'text-dark'
       .col-12
         span に同意する
     .row.py-5
