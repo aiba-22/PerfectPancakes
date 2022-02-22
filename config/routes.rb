@@ -12,11 +12,9 @@ Rails.application.routes.draw do
   # ===================================
   # ユーザー関連
   # ===================================
-  resources :users, only: %i[create new edit show destroy update]
 
-  get 'login' => 'user_sessions#new', :as => :login
-  post 'login' => 'user_sessions#create'
-  delete 'logout' => 'user_sessions#destroy', :as => :logout
+  resources :users, only: %i[create new edit show destroy update]
+  resource :user_sessions, only: %i[new create destroy]
 
   #退会ページ遷移で使用
   get 'remove' => 'users#remove', :as => :remove
@@ -49,7 +47,11 @@ Rails.application.routes.draw do
   # ===================================
   resources :contacts, only: %i[new create] #問い合わせフォーム
 
-  # mailer用のルーティング
+  # ===================================
+  # 開発環境のみ
+  # ===================================
+
+  # 開発環境の時はメールは飛ばさず確認できるようにする
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
 end
