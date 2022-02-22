@@ -1,6 +1,6 @@
 class FavoriteBakingsController < ApplicationController
   def edit
-    @user = User.find(current_user.id)
+    @user = current_user
   end
 
   def update

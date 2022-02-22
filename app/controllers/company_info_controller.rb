@@ -4,5 +4,4 @@ class CompanyInfoController < ApplicationController
 
   def terms; end
 
-  def mail_form; end
 end
