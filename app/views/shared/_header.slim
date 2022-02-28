@@ -7,7 +7,7 @@ nav class="navbar navbar-expand-lg navbar-dark bg-dark"
     #navbarNav.collapse.navbar-collapse
       ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0"
         li.nav-item.m-1
-          = link_to "ログアウト", logout_path, method: :delete, data: {"turbolinks" => false}
+          = link_to "ログアウト", user_sessions_path, method: :delete, data: {"turbolinks" => false}
         li.nav-item.m-1
           = link_to "ユーザー編集", edit_user_path(current_user.id), data: {"turbolinks" => false}
 

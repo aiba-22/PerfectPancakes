@@ -9,9 +9,9 @@ body.bg-secondary
 
     .row
       ul.recipe_ul
-        - @recipes.each do |recipe|
+        - @recipes_pagenate.each do |recipe|
           li.recipe_li.list-unstyled
             =link_to recipe_path(recipe.id)
               = image_tag recipe.image_url, class: 'recipe_img'
     .row
-      = paginate @recipes
+      = paginate @recipes_pagenate

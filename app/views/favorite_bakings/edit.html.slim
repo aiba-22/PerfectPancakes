@@ -13,7 +13,7 @@ body.bg-secondary
       .col
         h3.text-right
           |しっとり
-    = form_with url: favorite_bakings_update_path,method: :get,local: true do |f|
+    = form_with url: favorite_bakings_path, method: :patch,local: true do |f|
       #customRange3.form-range
         = f.range_field :w1, min: 0.9, max: 1.1, step: 0.05, value: @user.favorite_baking,class: "form-range", id: "slider1"
       .row
