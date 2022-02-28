@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   # ===================================
   # マイページ関連
   # ===================================
-  get 'my_page_menus/index'
+
+  resources :my_page_menus, only: %i[index]
 
   # マイページにある４つのリンクのルーティング
   get 'my_page_menus/simple_recipe'
