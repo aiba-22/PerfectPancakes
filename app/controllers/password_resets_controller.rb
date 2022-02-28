@@ -29,7 +29,7 @@ class PasswordResetsController < ApplicationController
 
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.change_password(params[:user][:password])
-      redirect_to login_path, flash: { success: t('.success') }
+      redirect_to new_user_sessions_path, flash: { success: t('.success') }
     else
       render action: 'edit'
     end
