@@ -2,8 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show destroy edit update]
   def index
     @recipe = Recipe.new
-    @recipes = Recipe.where(user_id: current_user.id).includes(:user).order(created_at: :asc)
-    @recipes = Kaminari.paginate_array(@recipes).page(params[:page])
+    @recipes_pagenate = Recipe.where(user_id: current_user.id).order(created_at: :asc).page(params[:page])
   end
 
   def create
@@ -16,20 +15,17 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path, flash: { success: t('.success') }
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @recipe_list = RecipeList.new
-    @recipe_lists = RecipeList.includes(:recipe).where(recipe_id: @recipe.id).order(step: :asc)
+    @recipe_lists = RecipeList.where(recipe_id: @recipe.id).includes(:recipe).order(step: :asc)
     @step = @recipe_lists.last
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     redirect_to edit_recipe_path(@recipe.id), flash: { success: t('.success') } if @recipe.update(recipe_params)
   end
 
@@ -40,7 +36,7 @@ class RecipesController < ApplicationController
   private
 
   def set_recipe
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def recipe_params
