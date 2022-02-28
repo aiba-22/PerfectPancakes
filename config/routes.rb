@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :my_page_menus, only: %i[index]
 
   # マイページにある４つのリンクのルーティング
-  get 'my_page_menus/simple_recipe'
+  resources :simple_recipes, only: %i[index]
   get 'webcams/index'
   get 'favorite_bakings/edit'
   get 'favorite_bakings/update'
