@@ -31,8 +31,7 @@ Rails.application.routes.draw do
   # マイページにある４つのリンクのルーティング
   resources :simple_recipes, only: %i[index]
   resources :webcams, only: %i[index]
-  get 'favorite_bakings/edit'
-  get 'favorite_bakings/update'
+  resource :favorite_bakings, only: %i[edit update]
 
   # ===================================
   # マイレシピ関連
